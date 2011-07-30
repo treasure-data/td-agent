@@ -1,0 +1,5 @@
+trd-agent (1.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- unknown <k@treasure-data.com>  Sun, 31 Jul 2011 04:21:16 +0900
