@@ -1,12 +1,12 @@
 Summary: td-agent
 Name: td-agent
 Version: 1.0
-License: Apache
+License: APL2
 Release: 0%{?dist}
 
-Group: Application/Text
-Vendor: Vendor
-URL: URL
+Group: System Environment/Daemons
+Vendor: Treasure Data, Inc.
+URL: http://treasure-data.com/
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-%(%{__id_u} -n)
 
