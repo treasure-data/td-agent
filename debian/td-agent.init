@@ -1,6 +1,6 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          trd-agent
+# Provides:          td-agent
 # Required-Start:    $network $local_fs
 # Required-Stop:
 # Default-Start:     2 3 4 5
@@ -15,10 +15,10 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 USER=td-agent                   # Running user
 GROUP=td-agent                  # Running group
-DESC=trd-agent                  # Introduce a short description here
-NAME=trd-agent                  # Introduce the short server's name here
+DESC=td-agent                  # Introduce a short description here
+NAME=td-agent                  # Introduce the short server's name here
 PIDFILE=/var/run/$NAME.pid
-DAEMON=/usr/bin/trd-agent       # Introduce the server's location here
+DAEMON=/usr/bin/td-agent       # Introduce the server's location here
 DAEMON_ARGS="--daemon $PIDFILE" # Arguments to run the daemon with
 SCRIPTNAME=/etc/init.d/$NAME
 START_STOP_DAEMON_ARGS=""

@@ -1,5 +1,5 @@
 #!/bin/sh
-# preinst script for trd-agent
+# preinst script for td-agent
 #
 # see: dh_installdeb(1)
 

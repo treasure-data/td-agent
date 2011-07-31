@@ -1,5 +1,5 @@
 #!/bin/sh
-# postrm script for trd-agent
+# postrm script for td-agent
 #
 # see: dh_installdeb(1)
 

@@ -1,5 +1,5 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: trd-agent
+Upstream-Name: td-agent
 Source: <url://example.com>
 
 Files: *

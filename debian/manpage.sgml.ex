@@ -26,8 +26,8 @@ manpage.1: manpage.sgml
   <!ENTITY dhsection   "<manvolnum>SECTION</manvolnum>">
   <!ENTITY dhemail     "<email>k@treasure-data.com</email>">
   <!ENTITY dhusername  "unknown">
-  <!ENTITY dhucpackage "<refentrytitle>TRD-AGENT</refentrytitle>">
-  <!ENTITY dhpackage   "trd-agent">
+  <!ENTITY dhucpackage "<refentrytitle>TD-AGENT</refentrytitle>">
+  <!ENTITY dhpackage   "td-agent">
 
   <!ENTITY debian      "<productname>Debian</productname>">
   <!ENTITY gnu         "<acronym>GNU</acronym>">

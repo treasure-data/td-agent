@@ -56,9 +56,9 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
   <!ENTITY dhsection   "SECTION">
   <!-- TITLE should be something like "User commands" or similar (see
        http://www.tldp.org/HOWTO/Man-Page/q2.html). -->
-  <!ENTITY dhtitle     "trd-agent User Manual">
-  <!ENTITY dhucpackage "TRD-AGENT">
-  <!ENTITY dhpackage   "trd-agent">
+  <!ENTITY dhtitle     "td-agent User Manual">
+  <!ENTITY dhucpackage "TD-AGENT">
+  <!ENTITY dhpackage   "td-agent">
 ]>
 
 <refentry>

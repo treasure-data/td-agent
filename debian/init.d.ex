@@ -1,6 +1,6 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          trd-agent
+# Provides:          td-agent
 # Required-Start:    $network $local_fs
 # Required-Stop:
 # Default-Start:     2 3 4 5
@@ -15,9 +15,9 @@
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-DESC=trd-agent             # Introduce a short description here
-NAME=trd-agent             # Introduce the short server's name here
-DAEMON=/usr/sbin/trd-agent # Introduce the server's location here
+DESC=td-agent             # Introduce a short description here
+NAME=td-agent             # Introduce the short server's name here
+DAEMON=/usr/sbin/td-agent # Introduce the server's location here
 DAEMON_ARGS=""             # Arguments to run the daemon with
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
