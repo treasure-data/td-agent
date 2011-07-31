@@ -15,7 +15,7 @@ export DH_OPTIONS
 	dh $@ 
 
 override_dh_auto_configure:
-	/bin/sh ./configure
+	/bin/sh ./configure --prefix=/usr
 
 override_dh_auto_build:
 	make -j 8
