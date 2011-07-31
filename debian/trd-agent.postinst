@@ -1,0 +1,32 @@
+#! /bin/sh
+
+set -e
+
+prevver="$2"
+
+add_system_user() {
+    if ! getent passwd td-agent >/dev/null; then
+        adduser --group --system --no-create-home td-agent
+    fi
+}
+
+fixperms() {
+    dpkg-statoverride --list /etc/td-agent >/dev/null || \
+        dpkg-statoverride --update --add td-agent td-agent 0755 /etc/td-agent
+}
+
+case "$1" in
+    configure)
+        add_system_user
+        fixperms
+        ;;
+    abort-upgrade|abort-deconfigure|abort-remove)
+        :
+        ;;
+    *)
+        echo "Called with unknown argument $1, bailing out."
+        exit 1
+        ;;
+esac
+
+#DEBHELPER#

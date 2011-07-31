@@ -13,12 +13,15 @@
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
+USER=td-agent                   # Running user
+GROUP=td-agent                  # Running group
 DESC=trd-agent                  # Introduce a short description here
 NAME=trd-agent                  # Introduce the short server's name here
 PIDFILE=/var/run/$NAME.pid
-DAEMON=/usr/bin/fluentd         # Introduce the server's location here
+DAEMON=/usr/bin/trd-agent       # Introduce the server's location here
 DAEMON_ARGS="--daemon $PIDFILE" # Arguments to run the daemon with
 SCRIPTNAME=/etc/init.d/$NAME
+START_STOP_DAEMON_ARGS=""
 
 # Exit if the package is not installed
 [ -x $DAEMON ] || exit 0
@@ -33,6 +36,25 @@ SCRIPTNAME=/etc/init.d/$NAME
 # Depend on lsb-base (>= 3.0-6) to ensure that this file is present.
 . /lib/lsb/init-functions
 
+# Check the user
+if [ -n "${USER}" ]; then
+	if ! getent passwd | grep -q "^${USER}:"; then
+		echo "$0: user for running td-agent doesn't exist: ${USER}" >&2
+		exit 1
+	fi
+	chown -R ${USER} $(dirname ${PIDFILE})
+	START_STOP_DAEMON_ARGS="${START_STOP_DAEMON_ARGS} -c ${USER}"
+fi
+if [ -n "${GROUP}" ]; then
+	if ! getent group | grep -q "^${GROUP}:"; then
+		echo "$0: group for running td-agent doesn't exist: ${GROUP}" >&2
+		exit 1
+	fi
+	START_STOP_DAEMON_ARGS="${START_STOP_DAEMON_ARGS} --group ${GROUP}"
+fi
+
+echo ${START_STOP_DAEMON_ARGS}
+
 #
 # Function that starts the daemon/service
 #
@@ -42,10 +64,11 @@ do_start()
 	#   0 if daemon has been started
 	#   1 if daemon was already running
 	#   2 if daemon could not be started
-	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON --test > /dev/null \
+	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON \
+	${START_STOP_DAEMON_ARGS} --test > /dev/null \
 		|| return 1
-	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON -- \
-		$DAEMON_ARGS \
+	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON \
+	${START_STOP_DAEMON_ARGS} -- $DAEMON_ARGS \
 		|| return 2
 	# Add code here, if necessary, that waits for the process to be ready
 	# to handle requests from services started subsequently which depend
