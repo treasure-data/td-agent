@@ -5,7 +5,7 @@ cur=`pwd`
 
 # setup td-agent-$version.tar.gz from fluent.git
 rm -fR fluent
-git clone git://github.com/kzk/fluent.git
+git clone git://github.com/fluent/fluent.git
 rm -fR $dst
 mv fluent $dst
 tar czf $dst.tar.gz $dst
