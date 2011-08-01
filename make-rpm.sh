@@ -8,6 +8,8 @@ rm -fR fluent
 git clone git://github.com/fluent/fluent.git
 rm -fR $dst
 mv fluent $dst
+cp td-agent.conf $dst
+cp Makefile.am $dst
 tar czf $dst.tar.gz $dst
 rm -fR $dst
 
