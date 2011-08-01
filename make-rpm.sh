@@ -5,7 +5,7 @@ cur=`pwd`
 
 # setup td-agent-$version.tar.gz from fluent.git
 rm -fR fluent
-git clone git@github.com:fluent/fluent.git
+git clone git://github.com/kzk/fluent.git
 rm -fR $dst
 mv fluent $dst
 tar czf $dst.tar.gz $dst
@@ -21,6 +21,8 @@ mkdir BUILD RPMS SOURCES SPECS SRPMS
 cp ../redhat/td-agent.spec SPECS
 # locate source tarball
 mv ../$dst.tar.gz SOURCES
+# locate init.d script
+cp ../redhat/td-agent.init SOURCES
 # build
 rpmbuild -v -bb --clean SPECS/td-agent.spec
 popd

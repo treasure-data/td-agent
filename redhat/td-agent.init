@@ -1,0 +1,88 @@
+#!/bin/bash
+#
+# /etc/rc.d/init.d/td-agent
+#
+# chkconfig: - 80 20
+# description: td-agent
+# processname: td-agent
+# pidfile: /var/run/td-agent/td-agent.pid
+#
+### BEGIN INIT INFO
+# Provides:          td-agent
+# Default-Stop:      0 1 6
+# Required-Start:    $local_fs
+# Required-Stop:     $local_fs
+# Short-Description: td-agent's init script
+# Description:       td-agent is a data collector
+### END INIT INFO
+
+# Source function library.
+. /etc/init.d/functions
+
+name="td-agent"
+prog="td-agent"
+td_agent=/usr/bin/$prog
+PIDFILE=/var/run/td-agent/$prog.pid
+
+DAEMON_ARGS=""
+TD_AGENT_ARGS=""
+
+if [ -n "${PIDFILE}" ]; then
+	mkdir -p $(dirname ${PIDFILE})
+	TD_AGENT_ARGS="${TD_AGENT_ARGS} --daemon ${PIDFILE}"
+fi
+
+RETVAL=0
+
+start() {
+	echo -n "Starting $name: "
+	daemon $DAEMON_ARGS $td_agent "$TD_AGENT_ARGS"
+	RETVAL=$?
+	echo
+	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/$prog
+	return $RETVAL
+}
+
+stop() {
+	echo -n "Shutting down $name: "
+	killproc $prog
+	RETVAL=$?
+	echo
+	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/$prog
+	return $RETVAL
+}
+
+restart() {
+	stop
+	start
+}
+
+status() {
+	status -p "${PIDFILE}" $td_agent
+}
+
+case "$1" in
+    start)
+	start
+	;;
+    stop)
+	stop
+	;;
+    restart)
+    	restart
+	;;
+    reload)
+	killproc $td_agent -HUP
+	;;
+    condrestart)
+	[ -f /var/lock/subsys/$prog ] && restart || :
+	;;
+    status)
+	status
+	;;
+    *)
+	echo "Usage: $prog {start|stop|reload|restart|condrestart|status}"
+	exit 1
+	;;
+esac
+exit $?
