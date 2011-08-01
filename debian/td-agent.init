@@ -15,10 +15,10 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 USER=td-agent                   # Running user
 GROUP=td-agent                  # Running group
-DESC=td-agent                  # Introduce a short description here
-NAME=td-agent                  # Introduce the short server's name here
+DESC=td-agent                   # Introduce a short description here
+NAME=td-agent                   # Introduce the short server's name here
 PIDFILE=/var/run/$NAME.pid
-DAEMON=/usr/bin/td-agent       # Introduce the server's location here
+DAEMON=/usr/sbin/td-agent       # Introduce the server's location here
 DAEMON_ARGS="--daemon $PIDFILE" # Arguments to run the daemon with
 SCRIPTNAME=/etc/init.d/$NAME
 START_STOP_DAEMON_ARGS=""
@@ -52,8 +52,6 @@ if [ -n "${GROUP}" ]; then
 	fi
 	START_STOP_DAEMON_ARGS="${START_STOP_DAEMON_ARGS} --group ${GROUP}"
 fi
-
-echo ${START_STOP_DAEMON_ARGS}
 
 #
 # Function that starts the daemon/service
