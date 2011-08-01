@@ -55,7 +55,7 @@ getent passwd td-agent >/dev/null || \
 %files
 %defattr(-,root,root)
 /usr
-/etc/fluent
+/etc/td-agent
 /etc/init.d/td-agent
 
 %changelog
