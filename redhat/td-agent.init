@@ -21,7 +21,7 @@
 
 name="td-agent"
 prog="td-agent"
-td_agent=/usr/bin/$prog
+td_agent=/usr/sbin/$prog
 PIDFILE=/var/run/td-agent/$prog.pid
 
 DAEMON_ARGS=""
@@ -48,17 +48,13 @@ stop() {
 	killproc $prog
 	RETVAL=$?
 	echo
-	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/$prog
+	[ $RETVAL -eq 0 ] && rm -f $PIDFILE && rm -f /var/lock/subsys/$prog
 	return $RETVAL
 }
 
 restart() {
 	stop
 	start
-}
-
-status() {
-	status -p "${PIDFILE}" $td_agent
 }
 
 case "$1" in
@@ -78,7 +74,7 @@ case "$1" in
 	[ -f /var/lock/subsys/$prog ] && restart || :
 	;;
     status)
-	status
+	status -p "${PIDFILE}" $td_agent
 	;;
     *)
 	echo "Usage: $prog {start|stop|reload|restart|condrestart|status}"
