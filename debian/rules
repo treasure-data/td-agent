@@ -15,9 +15,9 @@ export DH_OPTIONS
 	dh $@ 
 
 override_dh_auto_configure:
-	/bin/sh ./configure --prefix=/usr
+	/bin/sh ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/
 
 override_dh_auto_build:
-	make -j 8
+	make
 
 override_dh_auto_test:
