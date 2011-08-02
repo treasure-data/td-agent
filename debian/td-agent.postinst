@@ -10,7 +10,14 @@ add_system_user() {
     fi
 }
 
+add_directories() {
+    mkdir -p /var/run/td-agent
+    mkdir -p /etc/td-agent
+}
+
 fixperms() {
+    dpkg-statoverride --list /var/run/td-agent >/dev/null || \
+        dpkg-statoverride --update --add td-agent td-agent 0755 /var/run/td-agent
     dpkg-statoverride --list /etc/td-agent >/dev/null || \
         dpkg-statoverride --update --add td-agent td-agent 0755 /etc/td-agent
 }
@@ -18,6 +25,7 @@ fixperms() {
 case "$1" in
     configure)
         add_system_user
+        add_directories
         fixperms
         ;;
     abort-upgrade|abort-deconfigure|abort-remove)
