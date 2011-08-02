@@ -14,7 +14,7 @@ td-agent:
 	echo '#!$(RUBY_BINDIR)/ruby' > $@
 	echo 'ENV["FLUENT_CONF"]="$(sysconfdir)/td-agent/td-agent.conf"' >> $@
 	echo 'ENV["FLUENT_PLUGIN"]="$(sysconfdir)/td-agent/plugin"' >> $@
-	echo 'ENV["FLUENT_SOCKET"]="$(localstatedir)/run/td-agent.sock"' >> $@
+	echo 'ENV["FLUENT_SOCKET"]="$(localstatedir)/run/td-agent/td-agent.sock"' >> $@
 	echo 'load "$(RUBY_BINDIR)/fluentd"' >> $@
 	chmod 755 $@
 
