@@ -15,6 +15,10 @@ Requires: /usr/sbin/useradd /usr/sbin/groupadd
 Requires: /sbin/chkconfig
 Requires: openssl readline
 Requires(pre): shadow-utils
+Requires(post): /sbin/chkconfig
+Requires(post): /sbin/service
+Requires(preun): /sbin/chkconfig
+Requires(preun): /sbin/service
 Requires(build): gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel
 
 # 2011/08/01 Kazuki Ohta <kazuki.ohta@gmail.com>
@@ -51,6 +55,14 @@ getent group td-agent >/dev/null || /usr/sbin/groupadd -r td-agent
 echo "adding 'td-agent' user..."
 getent passwd td-agent >/dev/null || \
   /usr/sbin/useradd --home-dir /home/td-agent/ --no-create-home -r -g td-agent -c 'td-agent' td-agent
+/sbin/chkconfig --add td-agent
+/sbin/service td-agent start >/dev/null 2>&1 || :
+
+%preun
+if [ $1 = 0 ] ; then
+  /sbin/service td-agent stop >/dev/null 2>&1 || :
+  /sbin/chkconfig --del td-agent
+fi
 
 %files
 %defattr(-,root,root)
