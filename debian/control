@@ -2,7 +2,10 @@ Source: td-agent
 Section: Network
 Priority: optional
 Maintainer: Kazuki Ohta <k@treasure-data.com>
-Build-Depends: debhelper (>= 7.0.50~), autotools-dev
+Build-Depends:
+  debhelper (>= 7.0.50~),
+  autotools-dev,
+  libssl-dev
 Standards-Version: 3.9.1
 Homepage: http://treasure-data.com/
 #Vcs-Git: git://git.debian.org/collab-maint/td-agent.git
@@ -10,6 +13,8 @@ Homepage: http://treasure-data.com/
 
 Package: td-agent
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends:
+  ${shlibs:Depends},
+  ${misc:Depends},
+  libssl0.9.8
+Description: data collector agent for Treasure Data
