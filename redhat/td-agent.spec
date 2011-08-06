@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.0
+Version: 1.0.1
 License: APL2
 Release: 0%{?dist}
 
@@ -71,5 +71,8 @@ fi
 /etc/init.d/td-agent
 
 %changelog
-* Mon Aug 01 2011 Kazuki Ohta <kazuki.ohta@gmail.com> - 1.0.0
-- initial packaging for Scientific Linux 6
+* Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.1
+- fluent v0.9.7, with fluent-plugin-td gem.
+
+* Mon Aug 01 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.0
+- fluent v0.9.5. initial packaging for Scientific Linux 6
