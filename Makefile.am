@@ -9,14 +9,22 @@ DEST_RUBY = $(DESTDIR)$(RUBY_BINDIR)/ruby
 DEST_GEM = $(DEST_RUBY) -rrubygems -rrubygems/gem_runner -rrubygems/exceptions -rrubygems/installer -e 'class Gem::Installer; def shebang(bin_file_name) "\#\!$(RUBY_BINDIR)/ruby" end; end; Gem::GemRunner.new.run ARGV'
 DEST_RAKE = $(DEST_RUBY) -rrake -e 'Rake.application.run'
 DEST_RUBY_LIBDIR = $(DESTDIR)$(RUBY_LIBDIR)/ruby
+PLUGINS = fluent-plugin-td-0.9.7.gem
 
-td-agent:
+td-agent: plugins
 	echo '#!$(RUBY_BINDIR)/ruby' > $@
 	echo 'ENV["FLUENT_CONF"]="$(sysconfdir)/td-agent/td-agent.conf"' >> $@
 	echo 'ENV["FLUENT_PLUGIN"]="$(sysconfdir)/td-agent/plugin"' >> $@
 	echo 'ENV["FLUENT_SOCKET"]="$(localstatedir)/run/td-agent/td-agent.sock"' >> $@
 	echo 'load "$(RUBY_BINDIR)/fluentd"' >> $@
 	chmod 755 $@
+
+plugins:
+	for gem in $(PLUGINS); do \
+		if [ ! -f "$(srcdir)/deps/$$gem" ]; then \
+			wget "http://rubygems.org/downloads/$$gem" -O "$(srcdir)/deps/$$gem"; \
+		fi; \
+	done
 
 install: install-recursive
 	for gem in $(srcdir)/deps/*.gem; do \
@@ -34,4 +42,6 @@ install: install-recursive
 
 dist:
 	cd $(srcdir) && ./make_dist.sh
+
+.PHONY: plugins
 
