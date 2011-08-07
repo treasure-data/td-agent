@@ -25,7 +25,7 @@ td_agent=/usr/sbin/$prog
 PIDFILE=/var/run/td-agent/$prog.pid
 
 DAEMON_ARGS=""
-TD_AGENT_ARGS=""
+TD_AGENT_ARGS="--log /var/log/td-agent/td-agent.log"
 
 if [ -n "${PIDFILE}" ]; then
 	mkdir -p $(dirname ${PIDFILE})

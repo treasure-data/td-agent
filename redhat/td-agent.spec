@@ -45,6 +45,8 @@ make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
 # install init.d script
 mkdir -p $RPM_BUILD_ROOT/etc/init.d/
 install -m 755 %{S:1} $RPM_BUILD_ROOT/etc/init.d/%{name}
+# create log dir
+mkdir -p $RPM_BUILD_ROOT/var/log/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,6 +71,7 @@ fi
 /usr
 /etc/td-agent
 /etc/init.d/td-agent
+/var/log/td-agent
 
 %changelog
 * Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.1
