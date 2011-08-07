@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.0.1
+Version: 1.0.2
 License: APL2
 Release: 0%{?dist}
 
@@ -74,6 +74,9 @@ fi
 /var/log/td-agent
 
 %changelog
+* Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.2
+- fix calling undefined function in daemon mode
+
 * Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.1
 - fluent v0.9.7, with fluent-plugin-td gem.
 
