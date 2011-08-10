@@ -56,7 +56,7 @@ echo "adding 'td-agent' group..."
 getent group td-agent >/dev/null || /usr/sbin/groupadd -r td-agent
 echo "adding 'td-agent' user..."
 getent passwd td-agent >/dev/null || \
-  /usr/sbin/useradd --home-dir /home/td-agent/ --no-create-home -r -g td-agent -c 'td-agent' td-agent
+  /usr/sbin/useradd -r -g td-agent -d %{_localstatedir}/lib/td-agent -s /sbin/nologin -c 'td-agent' td-agent
 /sbin/chkconfig --add td-agent
 /sbin/service td-agent start >/dev/null 2>&1 || :
 
