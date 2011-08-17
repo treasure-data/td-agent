@@ -59,6 +59,7 @@ getent passwd td-agent >/dev/null || \
   /usr/sbin/useradd -r -g td-agent -d %{_localstatedir}/lib/td-agent -s /sbin/nologin -c 'td-agent' td-agent
 /sbin/chkconfig --add td-agent
 /sbin/service td-agent start >/dev/null 2>&1 || :
+chown -R td-agent:td-agent /var/log/%{name}
 
 %preun
 if [ $1 = 0 ] ; then
