@@ -1,17 +1,23 @@
 td-agent (1.0.2-1) lucid; urgency=low
 
+  * fluent v0.9.8
+
+ -- Kazuki Ohta <k@treasure-data.com>  Sat, 17 Aug 2011 23:24:08 +0000
+
+td-agent (1.0.2-1) lucid; urgency=low
+
   * fix calling undefined function in daemon mode
 
- -- Kazuki Ohta <k@treasure-data.com> Sat, 06 Aug 2011 23:24:08 +0000
+ -- Kazuki Ohta <k@treasure-data.com>  Sat, 06 Aug 2011 23:24:08 +0000
 
 td-agent (1.0.1-1) lucid; urgency=low
 
   * fluent v0.9.7, with fluent-plugin-td gem
 
- -- Kazuki Ohta <k@treasure-data.com> Sat, 06 Aug 2011 18:24:08 +0000
+ -- Kazuki Ohta <k@treasure-data.com>  Sat, 06 Aug 2011 18:24:08 +0000
 
 td-agent (1.0-1) unstable; urgency=low
 
   * fluent v0.9.5. Initial release for Ubuntu 10.0.4 Lucid.
 
- -- Kazuki Ohta <k@treasure-data.com> Sun, 31 Jul 2011 04:21:16 +0900
+ -- Kazuki Ohta <k@treasure-data.com>  Sun, 31 Jul 2011 04:21:16 +0900
