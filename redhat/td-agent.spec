@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.0.3
+Version: 1.0.4
 License: APL2
 Release: 0%{?dist}
 
@@ -75,6 +75,10 @@ fi
 /var/log/td-agent
 
 %changelog
+* Mon Sep 05 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.4
+- fluent v0.9.9
+- add fluent-plugin-scribe gem
+
 * Sun Aug 18 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.3
 - fluent v0.9.8
 
@@ -82,7 +86,7 @@ fi
 - fix calling undefined function in daemon mode
 
 * Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.1
-- fluent v0.9.7, with fluent-plugin-td gem.
+- fluent v0.9.7, with fluent-plugin-td gem
 
 * Mon Aug 01 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.0
 - fluent v0.9.5. initial packaging for Scientific Linux 6
