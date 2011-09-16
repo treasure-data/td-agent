@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.0.4
+Version: 1.0.5
 License: APL2
 Release: 0%{?dist}
 
@@ -75,6 +75,10 @@ fi
 /var/log/td-agent
 
 %changelog
+* Mon Sep 16 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.5
+- fluent v0.9.10
+- fluent-plugin-scribe v0.9.8
+
 * Mon Sep 05 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.4
 - fluent v0.9.9
 - add fluent-plugin-scribe gem
