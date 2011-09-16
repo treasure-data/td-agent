@@ -29,6 +29,7 @@ td-agent consists of the following components, and packaged as rpm/deb.
 
 * ruby 1.9.2
 * fluent: https://github.com/fluent/fluent
+* fluent-plugin-scribe: https://github.com/fluent/fluent-plugin-scribe
 * fluent-plugin-td: https://github.com/treasure-data/fluent-plugin-td
 
 # License
