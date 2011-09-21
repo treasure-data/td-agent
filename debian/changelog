@@ -1,3 +1,9 @@
+td-agent (1.0.7-1) lucid; urgency=low
+
+  * modified postinst
+
+ -- Kazuki Ohta <k@treasure-data.com>  Sat, 21 Sep 2011 23:24:08 +0000
+
 td-agent (1.0.6-1) lucid; urgency=low
 
   * fluent v0.9.13

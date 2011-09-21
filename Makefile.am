@@ -37,7 +37,7 @@ install: install-recursive
 	RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
 		$(DEST_GEM) install --no-rdoc --no-ri "$(srcdir)/pkg/fluent-$(VERSION).gem"
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent
-	cp -f $(srcdir)/td-agent.conf $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf
+	cp -f $(srcdir)/td-agent.conf $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf.tmpl
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/plugin
 
 dist:
