@@ -5,7 +5,9 @@ Maintainer: Kazuki Ohta <k@treasure-data.com>
 Build-Depends:
   debhelper (>= 7.0.50~),
   autotools-dev,
-  libssl-dev
+  libssl-dev,
+  wget,
+  git
 Standards-Version: 3.9.1
 Homepage: http://treasure-data.com/
 #Vcs-Git: git://git.debian.org/collab-maint/td-agent.git
