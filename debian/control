@@ -7,7 +7,7 @@ Build-Depends:
   autotools-dev,
   libssl-dev,
   wget,
-  git
+  git-core
 Standards-Version: 3.9.1
 Homepage: http://treasure-data.com/
 #Vcs-Git: git://git.debian.org/collab-maint/td-agent.git
