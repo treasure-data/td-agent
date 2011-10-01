@@ -1,3 +1,10 @@
+td-agent (1.0.9-1) lucid; urgency=low
+
+  * fluent v0.9.16
+  * fluent-plugin-scribe v0.9.10
+
+ -- Kazuki Ohta <k@treasure-data.com>  Sat, 01 Oct 2011 23:24:08 +0000
+
 td-agent (1.0.8-1) lucid; urgency=low
 
   * fluent v0.9.14
