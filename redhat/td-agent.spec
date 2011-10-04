@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.0.9
+Version: 1.0.10
 License: APL2
 Release: 0%{?dist}
 
@@ -75,6 +75,9 @@ fi
 /var/log/td-agent
 
 %changelog
+* Mon Oct 01 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.10
+- fix posinst
+
 * Mon Oct 01 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.9
 - fluent v0.9.16
 - fluent-plugin-scribe v0.9.10
