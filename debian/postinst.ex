@@ -17,36 +17,7 @@ set -e
 # for details, see http://www.debian.org/doc/debian-policy/ or
 # the debian-policy package
 
-function update_conffile() {
-    CONFFILE="$1"
-    TMPL="$2"
-
-    if [ -e "$CONFFILE" ]; then
-        md5sum="`md5sum \"$CONFFILE\" | sed -e \"s/ .*//\"`"
-        old_md5sum="`sed -n -e \"/^Conffiles:/,/^[^ ]/{\\\\' $TMPL'{s/.* //;p}}\" /var/lib/dpkg/status`"
-        if [ -z "$old_md5sum" ]; then
-           # backward compatibility
-            old_md5sum="`sed -n -e \"/^Conffiles:/,/^[^ ]/{\\\\' $CONFFILE'{s/.* //;p}}\" /var/lib/dpkg/status`"
-        fi
-
-        if [ "$md5sum" != "$old_md5sum" ]; then
-            echo "Conffile $CONFFILE has been modified. Remain untouched."
-            # do nothing
-        else
-            echo "Updating conffile $CONFFILE ..."
-            cp -f "$TMPL" "$CONFFILE"
-        fi
-    else
-        echo "Installing default conffile $CONFFILE ..."
-        cp -f "$TMPL" "$CONFFILE"
-    fi
-}
-
 case "$1" in
-    configure)
-        update_conffile /etc/td-agent/td-agent.conf /etc/td-agent/td-agent.conf.tmpl
-    ;;
-
     abort-upgrade|abort-remove|abort-deconfigure)
     ;;
 

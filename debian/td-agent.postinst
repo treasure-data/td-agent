@@ -25,11 +25,37 @@ fixperms() {
         dpkg-statoverride --update --add td-agent td-agent 0755 /var/log/td-agent
 }
 
+update_conffile() {
+    CONFFILE="$1"
+    TMPL="$2"
+
+    if [ -e "$CONFFILE" ]; then
+        md5sum="`md5sum \"$CONFFILE\" | sed -e \"s/ .*//\"`"
+        old_md5sum="`sed -n -e \"/^Conffiles:/,/^[^ ]/{\\\\' $TMPL'{s/.* //;p}}\" /var/lib/dpkg/status`"
+        if [ -z "$old_md5sum" ]; then
+           # backward compatibility
+            old_md5sum="`sed -n -e \"/^Conffiles:/,/^[^ ]/{\\\\' $CONFFILE'{s/.* //;p}}\" /var/lib/dpkg/status`"
+        fi
+
+        if [ "$md5sum" != "$old_md5sum" ]; then
+            echo "Conffile $CONFFILE has been modified. Remain untouched."
+            # do nothing
+        else
+            echo "Updating conffile $CONFFILE ..."
+            cp -f "$TMPL" "$CONFFILE"
+        fi
+    else
+        echo "Installing default conffile $CONFFILE ..."
+        cp -f "$TMPL" "$CONFFILE"
+    fi
+}
+
 case "$1" in
     configure)
         add_system_user
         add_directories
         fixperms
+        update_conffile /etc/td-agent/td-agent.conf /etc/td-agent/td-agent.conf.tmpl
         ;;
     abort-upgrade|abort-deconfigure|abort-remove)
         :
