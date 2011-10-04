@@ -36,6 +36,9 @@ function update_conffile() {
             echo "Updating conffile $CONFFILE ..."
             cp -f "$TMPL" "$CONFFILE"
         fi
+    else
+        echo "Installing default conffile $CONFFILE ..."
+        cp -f "$TMPL" "$CONFFILE"
     fi
 }
 
