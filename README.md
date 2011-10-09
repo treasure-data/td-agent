@@ -18,15 +18,26 @@ For full documentation see <http://docs.treasure-data.com/>.
 
 This script will create the debian environments by pbuilder-dist.
 
+# Build
+
+## deb
+
+For the first time, you need to prepare chroot environments for each distribution. This takes a time.
+
 ```bash
 $ ./make-deb-init.sh
 ```
 
-# Build
+Then, execute make-deb.sh.
 
 ```bash
-$ ./make-rpm.sh # for rpm
-$ ./make-deb.sh # for deb
+$ ./make-deb.sh
+```
+
+## rpm
+
+```bash
+$ ./make-rpm.sh
 ```
 
 # Install and Setup
