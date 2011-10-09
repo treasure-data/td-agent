@@ -11,6 +11,16 @@ For full documentation see <http://docs.treasure-data.com/>.
 # Requirement
 
 * openssl
+* pbuilder
+* rinse
+
+# Prepare
+
+This script will create the debian environments by pbuilder-dist.
+
+```bash
+$ ./make-deb-init.sh
+```
 
 # Build
 
