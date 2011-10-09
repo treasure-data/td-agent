@@ -17,7 +17,7 @@ yes | dh_make -e k@treasure-data.com --single -f ../$dst.tar.gz
 dpkg-buildpackage -rfakeroot -us -uc -S
 popd
 
-DISTS='squeeze lucid maverick'
+DISTS='lucid'
 ARCHITECTURES='i386 amd64'
 
 for dist in $DISTS; do
@@ -27,9 +27,13 @@ for dist in $DISTS; do
   done
 done
 
+wait
+
 for dist in $DISTS; do
   for arc in $ARCHITECTURES; do
     mkdir -p $version/$dist
     cp ~/pbuilder/$dist-${arc}_result/td-agent_$version-1_$arc.deb $version/$dist
   done
 done
+
+wait

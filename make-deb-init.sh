@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get install git-core
 
-DISTS='squeeze lenny lucid maverick'
+DISTS='lucid'
 ARCHITECTURES='i386 amd64'
 
 sudo ls -al
