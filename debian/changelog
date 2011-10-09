@@ -1,3 +1,9 @@
+td-agent (1.0.11-1) lucid; urgency=low
+
+  * fix gem installation order
+
+ -- Kazuki Ohta <k@treasure-data.com>  Sat, 10 Oct 2011 23:24:08 +0000
+
 td-agent (1.0.10-1) lucid; urgency=low
 
   * fix postinst

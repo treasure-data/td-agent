@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.0.10
+Version: 1.0.11
 License: APL2
 Release: 0%{?dist}
 
@@ -79,7 +79,10 @@ fi
 /var/log/td-agent
 
 %changelog
-* Mon Oct 01 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.10
+* Mon Oct 10 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.11
+- fix gem installation order
+
+* Mon Oct 05 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.10
 - fix posinst
 
 * Mon Oct 01 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.9
