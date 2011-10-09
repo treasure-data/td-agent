@@ -3,6 +3,9 @@ version=`cat VERSION`
 dst=td-agent-$version
 cur=`pwd`
 
+# install required packages
+yum install zlib-devel automake autoconf libtool auto-buildrequires openssl-devel
+
 # setup td-agent-$version.tar.gz from fluent.git
 rm -fR fluent
 git clone git://github.com/fluent/fluent.git

@@ -57,9 +57,13 @@ getent group td-agent >/dev/null || /usr/sbin/groupadd -r td-agent
 echo "adding 'td-agent' user..."
 getent passwd td-agent >/dev/null || \
   /usr/sbin/useradd -r -g td-agent -d %{_localstatedir}/lib/td-agent -s /sbin/nologin -c 'td-agent' td-agent
+chown -R td-agent:td-agent /var/log/%{name}
+if [ ! -e "/etc/td-agent/td-agent.conf" ]; then
+  echo "Installing default conffile $CONFFILE ..."
+  cp -f /etc/td-agent/td-agent.conf.tmpl /etc/td-agent/td-agent.conf
+fi
 /sbin/chkconfig --add td-agent
 /sbin/service td-agent start >/dev/null 2>&1 || :
-chown -R td-agent:td-agent /var/log/%{name}
 
 %preun
 if [ $1 = 0 ] ; then
