@@ -21,7 +21,7 @@ td-agent: plugins
 
 plugins:
 	for gem in $(PLUGINS); do \
-		if [ ! -f "$(srcdir)/deps/$$gem" ]; then \
+		if [ ! -f "$(srcdir)/plugins/$$gem" ]; then \
 			wget "http://rubygems.org/downloads/$$gem" -O "$(srcdir)/plugins/$$gem"; \
 		fi; \
 	done
