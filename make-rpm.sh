@@ -6,11 +6,11 @@ cur=`pwd`
 # install required packages
 yum install zlib-devel automake autoconf libtool auto-buildrequires openssl-devel
 
-# setup td-agent-$version.tar.gz from fluent.git
-rm -fR fluent
-git clone git://github.com/fluent/fluent.git
+# setup td-agent-$version.tar.gz from fluentd.git
+rm -fR fluentd
+git clone git://github.com/fluent/fluentd.git
 rm -fR $dst
-mv fluent $dst
+mv fluentd $dst
 cp td-agent.conf $dst
 cp Makefile.am $dst
 tar czf $dst.tar.gz $dst

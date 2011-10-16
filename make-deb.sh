@@ -2,10 +2,10 @@
 version=`cat VERSION`
 dst=td-agent-$version
 
-rm -fR fluent
-git clone git://github.com/fluent/fluent.git
+rm -fR fluentd
+git clone git://github.com/fluent/fluentd.git
 rm -fR $dst
-cp -r fluent $dst
+cp -r fluentd $dst
 cp -r debian $dst
 cp td-agent.conf $dst
 cp Makefile.am $dst
