@@ -14,6 +14,7 @@ tar czf $dst.tar.gz $dst
 pushd $dst
 yes | dh_make -e k@treasure-data.com --single -f ../$dst.tar.gz
 ./autogen.sh
+./make_dist.sh
 dpkg-buildpackage -rfakeroot -us -uc -S
 popd
 

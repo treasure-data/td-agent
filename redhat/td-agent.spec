@@ -34,6 +34,7 @@ Requires(build): gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel
 
 %build
 ./autogen.sh
+./make_dist.sh
 %configure
 make %{?_smp_mflags}
 
