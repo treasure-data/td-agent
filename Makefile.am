@@ -1,4 +1,3 @@
-
 SUBDIRS = deps/ruby
 
 sbin_SCRIPTS = td-agent
@@ -9,7 +8,7 @@ DEST_RUBY = $(DESTDIR)$(RUBY_BINDIR)/ruby
 DEST_GEM = $(DEST_RUBY) -rrubygems -rrubygems/gem_runner -rrubygems/exceptions -rrubygems/installer -e 'class Gem::Installer; def shebang(bin_file_name) "\#\!$(RUBY_BINDIR)/ruby" end; end; Gem::GemRunner.new.run ARGV'
 DEST_RAKE = $(DEST_RUBY) -rrake -e 'Rake.application.run'
 DEST_RUBY_LIBDIR = $(DESTDIR)$(RUBY_LIBDIR)/ruby
-PLUGINS = fluent-plugin-td-0.9.10.gem fluent-plugin-scribe-0.9.10.gem
+PLUGINS = fluent-plugin-td-0.10.4.gem fluent-plugin-scribe-0.10.3.gem
 
 td-agent: plugins
 	echo '#!$(RUBY_BINDIR)/ruby' > $@
@@ -20,6 +19,7 @@ td-agent: plugins
 	chmod 755 $@
 
 plugins:
+	mkdir -p "$(srcdir)/plugins/"
 	for gem in $(PLUGINS); do \
 		if [ ! -f "$(srcdir)/plugins/$$gem" ]; then \
 			wget "http://rubygems.org/downloads/$$gem" -O "$(srcdir)/plugins/$$gem"; \
@@ -50,4 +50,3 @@ dist:
 	cd $(srcdir) && ./make_dist.sh
 
 .PHONY: plugins
-

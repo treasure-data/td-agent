@@ -1,3 +1,12 @@
+td-agent (1.1.0-1) lucid; urgency=low
+
+  * fluentd v0.10.6
+  * fluent-plugin-td v0.10.4
+  * fluent-plugin-scribe v0.10.3
+  * fluent-plugin-mongo v0.4.0 (new)
+
+ -- Kazuki Ohta <k@treasure-data.com>  Fri, 11 Nov 2011 23:24:08 +0000
+
 td-agent (1.0.11-1) lucid; urgency=low
 
   * fix gem installation order
