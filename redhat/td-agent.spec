@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.0.11
+Version: 1.1.0
 License: APL2
 Release: 0%{?dist}
 
