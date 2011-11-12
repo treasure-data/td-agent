@@ -63,10 +63,18 @@ if [ ! -e "/etc/td-agent/td-agent.conf" ]; then
   echo "Installing default conffile $CONFFILE ..."
   cp -f /etc/td-agent/td-agent.conf.tmpl /etc/td-agent/td-agent.conf
 fi
+if [ -d "/etc/prelink.conf.d/" ]; then
+  echo "prelink detected. Installing /etc/prelink.conf.d/td-agent.conf ..."
+  cp -f /etc/td-agent/prelink.conf.d/td-agent.conf /etc/prelink.conf.d/td-agent.conf
+fi
 /sbin/chkconfig --add td-agent
 /sbin/service td-agent start >/dev/null 2>&1 || :
 
 %preun
+if [ -e "/etc/prelink.conf.d/td-agent.conf" ]; then
+  echo "Uninstalling /etc/prelink.conf.d/td-agent.conf ..."
+  rm -f /etc/prelink.conf.d/td-agent.conf
+fi
 if [ $1 = 0 ] ; then
   /sbin/service td-agent stop >/dev/null 2>&1 || :
   /sbin/chkconfig --del td-agent

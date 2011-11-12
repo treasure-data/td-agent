@@ -47,6 +47,8 @@ install: install-recursive
 	done
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent
 	cp -f $(srcdir)/td-agent.conf $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf.tmpl
+	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d
+	cp -f $(srcdir)/td-agent.prelink.conf $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d/td-agent.conf
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/plugin
 
 dist:
