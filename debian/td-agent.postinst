@@ -48,6 +48,17 @@ update_conffile() {
         echo "Installing default conffile $CONFFILE ..."
         cp -f "$TMPL" "$CONFFILE"
     fi
+
+    # 2011/11/13 Kazuki Ohta <k@treasure-data.com>
+    # Before td-agent v1.1.0, fluentd has a bug of loading plugin before
+    # changing to the right user. Then, these directories were created with
+    # root permission. The following lines fix that problem.
+    if [ -d "/var/log/td-agent/buffer/" ]; then
+        chown -R td-agent:td-agent /var/log/td-agent/buffer/
+    fi
+    if [ -d "/tmp/fluent/" ]; then
+        chown -R td-agent:td-agent /tmp/fluent/
+    fi
 }
 
 case "$1" in

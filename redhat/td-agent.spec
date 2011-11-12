@@ -63,10 +63,26 @@ if [ ! -e "/etc/td-agent/td-agent.conf" ]; then
   echo "Installing default conffile $CONFFILE ..."
   cp -f /etc/td-agent/td-agent.conf.tmpl /etc/td-agent/td-agent.conf
 fi
+
+# 2011/11/13 Kazuki Ohta <k@treasure-data.com>
+# This prevents prelink, to break the Ruby intepreter.
 if [ -d "/etc/prelink.conf.d/" ]; then
   echo "prelink detected. Installing /etc/prelink.conf.d/td-agent.conf ..."
   cp -f /etc/td-agent/prelink.conf.d/td-agent.conf /etc/prelink.conf.d/td-agent.conf
 fi
+
+# 2011/11/13 Kazuki Ohta <k@treasure-data.com>
+# Before td-agent v1.1.0, fluentd has a bug of loading plugin before changing
+# to the right user. Then, these directories were created with root permission.
+# The following lines fix that problem.
+if [ -d "/var/log/td-agent/buffer/" ]; then
+  chown -R td-agent:td-agent /var/log/td-agent/buffer/
+fi
+if [ -d "/tmp/fluent/" ]; then
+  chown -R td-agent:td-agent /tmp/fluent/
+fi
+
+echo "Starting td-agent ..."
 /sbin/chkconfig --add td-agent
 /sbin/service td-agent start >/dev/null 2>&1 || :
 
@@ -76,6 +92,7 @@ if [ -e "/etc/prelink.conf.d/td-agent.conf" ]; then
   rm -f /etc/prelink.conf.d/td-agent.conf
 fi
 if [ $1 = 0 ] ; then
+  echo "Stopping td-agent ..."
   /sbin/service td-agent stop >/dev/null 2>&1 || :
   /sbin/chkconfig --del td-agent
 fi
