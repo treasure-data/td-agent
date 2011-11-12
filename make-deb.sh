@@ -2,9 +2,13 @@
 version=`cat VERSION`
 password=`cat PASSWORD`
 dst=td-agent-$version
+rev=`cat REVISION`
 
 rm -fR fluentd
 git clone git://github.com/fluent/fluentd.git
+cd fluentd
+git checkout $rev
+cd ..
 rm -fR $dst*
 rm -fR td-agent_$version*
 rm -fR *.dsc

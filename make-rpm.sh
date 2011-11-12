@@ -1,14 +1,18 @@
 #!/bin/bash
 version=`cat VERSION`
 dst=td-agent-$version
+rev=`cat REVISION`
 cur=`pwd`
 
 # install required packages
-yum install zlib-devel automake autoconf libtool auto-buildrequires openssl-devel
+yum install -y emacs zlib-devel automake autoconf libtool auto-buildrequires openssl-devel
 
 # setup td-agent-$version.tar.gz from fluentd.git
 rm -fR fluentd
 git clone git://github.com/fluent/fluentd.git
+cd fluentd
+git checkout $rev
+cd ..
 rm -fR $dst
 mv fluentd $dst
 cp td-agent.conf $dst
