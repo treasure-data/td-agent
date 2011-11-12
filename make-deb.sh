@@ -6,7 +6,7 @@ dst=td-agent-$version
 rm -fR fluentd
 git clone git://github.com/fluent/fluentd.git
 rm -fR $dst*
-rm -fR $dst*
+rm -fR td-agent_$version*
 rm -fR *.dsc
 cp -r fluentd $dst
 cp -r debian $dst
@@ -17,7 +17,6 @@ tar czf $dst.tar.gz $dst
 pushd $dst
 yes | dh_make -e k@treasure-data.com --single -f ../$dst.tar.gz
 ./autogen.sh
-./make_dist.sh
 dpkg-buildpackage -rfakeroot -us -uc -S
 popd
 
