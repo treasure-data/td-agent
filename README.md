@@ -44,6 +44,17 @@ $ ./make-rpm.sh
 
 Please refer the document (http://docs.treasure-data.com).
 
+# Deploy
+
+## RPM
+
+Please login into 174.129.37.216, and execute these lines.
+
+```bash
+$ cp td-agent-1.1.0-0.i386.rpm /var/www/html/redhat/i386/
+$ create -V /var/www/html/redhat/i386/
+```
+
 # Notice
 
 td-agent consists of the following components, and packaged as rpm/deb.
@@ -52,6 +63,7 @@ td-agent consists of the following components, and packaged as rpm/deb.
 * fluent: https://github.com/fluent/fluentd
 * fluent-plugin-scribe: https://github.com/fluent/fluent-plugin-scribe
 * fluent-plugin-td: https://github.com/treasure-data/fluent-plugin-td
+* fluent-plugin-mongo: https://github.com/treasure-data/fluent-plugin-mongo
 
 # License
 
