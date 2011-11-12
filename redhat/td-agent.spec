@@ -90,9 +90,10 @@ fi
 %changelog
 * Fri Nov 11 2011 Kazuki Ohta <k@treasure-data.com> - 1.1.0
 - fluentd v0.10.6
-- fluent-plugin-td v0.10.4
+- fluent-plugin-td v0.10.2
 - fluent-plugin-scribe v0.10.3
 - fluent-plugin-mongo v0.4.0 (new)
+- prevent Ruby interpreter breaking by prelink
 
 * Mon Oct 10 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.11
 - fix gem installation order

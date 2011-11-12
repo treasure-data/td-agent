@@ -1,7 +1,7 @@
 td-agent (1.1.0-1) lucid; urgency=low
 
   * fluentd v0.10.6
-  * fluent-plugin-td v0.10.4
+  * fluent-plugin-td v0.10.2
   * fluent-plugin-scribe v0.10.3
   * fluent-plugin-mongo v0.4.0 (new)
 
