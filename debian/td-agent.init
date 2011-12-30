@@ -43,6 +43,9 @@ if [ -n "${USER}" ]; then
 		echo "$0: user for running td-agent doesn't exist: ${USER}" >&2
 		exit 1
 	fi
+	if [ ! -d $(dirname ${PIDFILE}) ]; then
+		mkdir -p $(dirname ${PIDFILE})
+	fi
 	chown -R ${USER} $(dirname ${PIDFILE})
 	START_STOP_DAEMON_ARGS="${START_STOP_DAEMON_ARGS} -c ${USER}"
 fi
