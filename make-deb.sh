@@ -15,6 +15,7 @@ rm -fR *.dsc
 cp -r fluentd $dst
 cp -r debian $dst
 cp td-agent.conf $dst
+cp td-agent.prelink.conf $dst
 cp Makefile.am $dst
 tar czf $dst.tar.gz $dst
 
