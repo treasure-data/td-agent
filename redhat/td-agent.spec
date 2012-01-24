@@ -105,7 +105,7 @@ fi
 /var/log/td-agent
 
 %changelog
-* Mon Jan 23 2011 Kazuki Ohta <k@treasure-data.com> - 1.1.1
+* Mon Jan 23 2012 Kazuki Ohta <k@treasure-data.com>
 - fluentd v0.10.9
 - fluent-plugin-scribe v0.10.6
 - fluent-plugin-mongo v0.6.2
@@ -113,46 +113,46 @@ fi
 - fix /var/run/td-agent/ creation in init.d script
 - fix Ruby interpreter breakinb by prelink, on 32-bit platform
 
-* Fri Nov 11 2011 Kazuki Ohta <k@treasure-data.com> - 1.1.0
+* Fri Nov 11 2011 Kazuki Ohta <k@treasure-data.com>
 - fluentd v0.10.6
 - fluent-plugin-td v0.10.2
 - fluent-plugin-scribe v0.10.3
 - fluent-plugin-mongo v0.4.0 (new)
 - prevent Ruby interpreter breaking by prelink
 
-* Mon Oct 10 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.11
+* Mon Oct 10 2011 Kazuki Ohta <k@treasure-data.com>
 - fix gem installation order
 
-* Mon Oct 05 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.10
+* Mon Oct 05 2011 Kazuki Ohta <k@treasure-data.com>
 - fix posinst
 
-* Mon Oct 01 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.9
+* Mon Oct 01 2011 Kazuki Ohta <k@treasure-data.com>
 - fluent v0.9.16
 - fluent-plugin-scribe v0.9.10
 
-* Mon Sep 20 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.8
+* Mon Sep 20 2011 Kazuki Ohta <k@treasure-data.com>
 - fluent v0.9.14
 - fluent-plugin-td v0.9.10
 
-* Mon Sep 20 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.6
+* Mon Sep 20 2011 Kazuki Ohta <k@treasure-data.com>
 - fluent v0.9.13
 
-* Mon Sep 16 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.5
+* Mon Sep 16 2011 Kazuki Ohta <k@treasure-data.com>
 - fluent v0.9.10
 - fluent-plugin-scribe v0.9.8
 
-* Mon Sep 05 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.4
+* Mon Sep 05 2011 Kazuki Ohta <k@treasure-data.com>
 - fluent v0.9.9
 - add fluent-plugin-scribe gem
 
-* Sun Aug 18 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.3
+* Sun Aug 18 2011 Kazuki Ohta <k@treasure-data.com>
 - fluent v0.9.8
 
-* Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.2
+* Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com>
 - fix calling undefined function in daemon mode
 
-* Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.1
+* Sun Aug 07 2011 Kazuki Ohta <k@treasure-data.com>
 - fluent v0.9.7, with fluent-plugin-td gem
 
-* Mon Aug 01 2011 Kazuki Ohta <k@treasure-data.com> - 1.0.0
+* Mon Aug 01 2011 Kazuki Ohta <k@treasure-data.com>
 - fluent v0.9.5. initial packaging for Scientific Linux 6

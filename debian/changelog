@@ -7,7 +7,7 @@ td-agent (1.1.1-1) lucid; urgency=low
   * fix /var/run/td-agent/ creation in init.d script
   * fix Ruby interpreter breakinb by prelink, on 32-bit platform
 
- -- Kazuki Ohta <k@treasure-data.com>  Mon, 23 Jan 2011 23:24:08 +0000
+ -- Kazuki Ohta <k@treasure-data.com>  Mon, 23 Jan 2012 23:24:08 +0000
 
 td-agent (1.1.0-1) lucid; urgency=low
 
