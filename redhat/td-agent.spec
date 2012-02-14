@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.1
+Version: 1.1.2
 License: APL2
 Release: 0%{?dist}
 
@@ -105,6 +105,12 @@ fi
 /var/log/td-agent
 
 %changelog
+* Wed Feb 08 2012 Kazuki Ohta <k@treasure-data.com>
+- fluentd v0.10.10
+- fluent-plugin-td v0.10.5
+- fluent-plugin-scribe v0.10.7
+- fluent-plugin-mongo v0.6.3
+
 * Mon Jan 23 2012 Kazuki Ohta <k@treasure-data.com>
 - fluentd v0.10.9
 - fluent-plugin-scribe v0.10.6

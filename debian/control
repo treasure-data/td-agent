@@ -7,7 +7,11 @@ Build-Depends:
   autotools-dev,
   libssl-dev,
   wget,
-  git-core
+  git-core,
+  libxslt1.1,
+  libxslt1-dev,
+  libxml2,
+  libxml2-dev
 Standards-Version: 3.9.1
 Homepage: http://treasure-data.com/
 #Vcs-Git: git://git.debian.org/collab-maint/td-agent.git
@@ -18,5 +22,7 @@ Architecture: any
 Depends:
   ${shlibs:Depends},
   ${misc:Depends},
-  libssl0.9.8
-Description: data collector agent for Treasure Data
+  libssl0.9.8,
+  libxslt1.1,
+  libxml2
+Description: A data collector agent for Treasure Data
