@@ -45,5 +45,10 @@ for dist in $DISTS; do
     cp ~/pbuilder/$dist-${arc}_result/td-agent_$version-1_$arc.deb $version/$dist
   done
 done
+cp td-agent_$version-1.dsc           $version/
+cp td-agent_$version-1.debian.tar.gz $version/
+cp td-agent_$version.orig.tar.gz     $version/
 
 wait
+
+tar czf $version.tar.gz $version
