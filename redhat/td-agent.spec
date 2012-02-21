@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.2
+Version: 1.1.2.1
 License: APL2
 Release: 0%{?dist}
 
@@ -67,8 +67,8 @@ fi
 # 2011/11/13 Kazuki Ohta <k@treasure-data.com>
 # This prevents prelink, to break the Ruby intepreter.
 if [ -d "/etc/prelink.conf.d/" ]; then
-  echo "prelink detected. Installing /etc/prelink.conf.d/td-agent.conf ..."
-  cp -f /etc/td-agent/prelink.conf.d/td-agent.conf /etc/prelink.conf.d/td-agent.conf
+  echo "prelink detected. Installing /etc/prelink.conf.d/td-agent-ruby.conf ..."
+  cp -f /etc/td-agent/prelink.conf.d/td-agent.conf /etc/prelink.conf.d/td-agent-ruby.conf
 fi
 
 # 2011/11/13 Kazuki Ohta <k@treasure-data.com>
@@ -87,10 +87,13 @@ echo "Starting td-agent ..."
 /sbin/service td-agent start >/dev/null 2>&1 || :
 
 %preun
-if [ -e "/etc/prelink.conf.d/td-agent.conf" ]; then
-  echo "Uninstalling /etc/prelink.conf.d/td-agent.conf ..."
-  rm -f /etc/prelink.conf.d/td-agent.conf
-fi
+# 2011/02/21 Kazuki Ohta <k@treasure-data.com>
+# Just leave this file, because this line could delete td-agent.conf in a
+# *UPGRADE* process :-(
+# if [ -e "/etc/prelink.conf.d/td-agent-ruby.conf" ]; then
+#   echo "Uninstalling /etc/prelink.conf.d/td-agent-ruby.conf ..."
+#   rm -f /etc/prelink.conf.d/td-agent-ruby.conf
+# fi
 if [ $1 = 0 ] ; then
   echo "Stopping td-agent ..."
   /sbin/service td-agent stop >/dev/null 2>&1 || :
@@ -105,7 +108,12 @@ fi
 /var/log/td-agent
 
 %changelog
+* Tue Feb 21 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.2.1
+- fix not to remove prelink file, when updating the package
+
 * Wed Feb 08 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.2
 - fluentd v0.10.10
 - fluent-plugin-td v0.10.5
 - fluent-plugin-scribe v0.10.7
