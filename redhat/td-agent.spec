@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.2.1
+Version: 1.1.2.2
 License: APL2
 Release: 0%{?dist}
 
@@ -19,7 +19,7 @@ Requires(post): /sbin/chkconfig
 Requires(post): /sbin/service
 Requires(preun): /sbin/chkconfig
 Requires(preun): /sbin/service
-Requires(build): gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel libxslt-devel libxml2-devel
+BuildRequires: gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel libxslt-devel libxml2-devel
 
 # 2011/08/01 Kazuki Ohta <kazuki.ohta@gmail.com>
 # prevent stripping the debug info.
@@ -108,6 +108,10 @@ fi
 /var/log/td-agent
 
 %changelog
+* Wed Feb 22 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.2.2
+- fix package dependency
+
 * Tue Feb 21 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.2.1
 - fix not to remove prelink file, when updating the package
