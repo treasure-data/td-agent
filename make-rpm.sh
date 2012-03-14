@@ -4,6 +4,12 @@ dst=td-agent-$version
 rev=`cat REVISION`
 cur=`pwd`
 
+# user defined revision
+if [ ! -z "$1" ]; then
+  rev=$1
+  rpm_dist=$(echo $rev | cut -c1-10)
+fi
+
 # install required packages
 yum install -y emacs zlib-devel automake autoconf libtool auto-buildrequires openssl-devel
 
@@ -34,5 +40,9 @@ mv ../$dst.tar.gz SOURCES
 # locate init.d script
 cp ../redhat/td-agent.init SOURCES
 # build
-rpmbuild -v -bb --clean SPECS/td-agent.spec
+if [ -z "$rpm_dist" ]; then
+  rpmbuild -v -ba --clean SPECS/td-agent.spec
+else
+  rpmbuild -v -ba --define "dist .${rpm_dist}" --clean SPECS/td-agent.spec
+fi
 popd
