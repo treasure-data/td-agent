@@ -69,6 +69,9 @@ fi
 if [ -d "/etc/prelink.conf.d/" ]; then
   echo "prelink detected. Installing /etc/prelink.conf.d/td-agent-ruby.conf ..."
   cp -f /etc/td-agent/prelink.conf.d/td-agent.conf /etc/prelink.conf.d/td-agent-ruby.conf
+elif [ $(grep '\-b /usr/lib{,64}/fluent/ruby/bin/ruby' -c /etc/prelink.conf) -eq 0 ]; then
+  echo "prelink detected, but /etc/prelink.conf.d/ dosen't exist. Adding /etc/prelink.conf ..."
+  echo "-b /usr/lib{,64}/fluent/ruby/bin/ruby" >> /etc/prelink.conf
 fi
 
 # 2011/11/13 Kazuki Ohta <k@treasure-data.com>
