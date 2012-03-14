@@ -75,7 +75,7 @@ case "$1" in
 	[ -f /var/lock/subsys/$prog ] && restart || :
 	;;
     status)
-	status -p "${PIDFILE}" $td_agent
+	status $td_agent
 	;;
     *)
 	echo "Usage: $prog {start|stop|reload|restart|condrestart|status}"
