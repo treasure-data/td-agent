@@ -44,17 +44,6 @@ $ ./make-rpm.sh
 
 Please refer the document (http://docs.treasure-data.com).
 
-# Deploy
-
-## RPM
-
-Please login into 174.129.37.216, and execute these lines.
-
-```bash
-$ cp td-agent-1.1.0-0.i386.rpm /var/www/html/redhat/i386/
-$ create -V /var/www/html/redhat/i386/
-```
-
 # Notice
 
 td-agent consists of the following components, and packaged as rpm/deb.
