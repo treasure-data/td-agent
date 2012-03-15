@@ -40,6 +40,12 @@ $ ./make-deb.sh
 $ ./make-rpm.sh
 ```
 
+If you use specific revision of fluentd...
+
+```bash
+$ ./make-rpm.sh e20137ce1f92c4e364d304969f56bf41e713ee07
+```
+
 # Install and Setup
 
 Please refer the document (http://docs.treasure-data.com).
