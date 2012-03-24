@@ -90,6 +90,12 @@ fi
 echo "Configure td-agent to start, when booting up the OS..."
 /sbin/chkconfig --add td-agent
 
+# 2011/03/24 Kazuki Ohta <k@treasure-data.com>
+# When upgrade, restart agent if it's launched
+if [ "$1" = "2" ]; then
+  /sbin/service td-agent condrestart >/dev/null 2>&1 || :
+fi
+
 %preun
 # 2011/02/21 Kazuki Ohta <k@treasure-data.com>
 # Just leave this file, because this line could delete td-agent.conf in a
