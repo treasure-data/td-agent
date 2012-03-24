@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.3
+Version: 1.1.3.1
 License: APL2
 Release: 0%{?dist}
 
@@ -87,9 +87,8 @@ if [ -d "/tmp/fluent/" ]; then
   chown -R td-agent:td-agent /tmp/fluent/
 fi
 
-echo "Starting td-agent ..."
+echo "Configure td-agent to start, when booting up the OS..."
 /sbin/chkconfig --add td-agent
-/sbin/service td-agent start >/dev/null 2>&1 || :
 
 %preun
 # 2011/02/21 Kazuki Ohta <k@treasure-data.com>
@@ -113,6 +112,11 @@ fi
 /var/log/td-agent
 
 %changelog
+* Sat Mar 25 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.3.1
+- fix not to start td-agent daemon, when installing. thx @moriyoshi.
+- various fix for CentOS 4 (prelink & status). thx @riywo.
+
 * Sun Mar 10 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.3
 - fluent-plugin-mongo v0.6.6
