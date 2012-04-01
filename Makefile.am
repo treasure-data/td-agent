@@ -1,4 +1,4 @@
-SUBDIRS = deps/ruby
+SUBDIRS = deps/jemalloc deps/ruby
 
 sbin_SCRIPTS = td-agent
 
