@@ -20,7 +20,7 @@ mkdir -p deps/ruby
 mkdir -p plugins
 cd deps
 download "http://www.canonware.com/download/jemalloc" "jemalloc-2.2.5.tar.bz2"
-download "http://ftp.ruby-lang.org/pub/ruby/1.9" "ruby-1.9.2-p290.tar.bz2"
+download "http://ftp.ruby-lang.org/pub/ruby/1.9" "ruby-1.9.3-p125.tar.bz2"
 download "http://rubygems.org/downloads" "json-1.5.2.gem"
 download "http://rubygems.org/downloads" "msgpack-0.4.4.gem"
 download "http://rubygems.org/downloads" "iobuffer-0.1.3.gem"
