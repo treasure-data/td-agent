@@ -6,7 +6,7 @@ test -f COPYING   || touch COPYING
 test -f ChangeLog || touch ChangeLog
 test -f NEWS      || touch NEWS
 test -f NOTICE    || touch NOTICE
-test -f README    || cp -f README.rdoc README
+test -f README    || cp -f README.md README
 
 function download() {
     if [ ! -f "$2" ];then
