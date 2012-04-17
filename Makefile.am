@@ -11,9 +11,9 @@ DEST_GEM = $(DEST_RUBY) -rrubygems -rrubygems/gem_runner -rrubygems/exceptions -
 DEST_RAKE = $(DEST_RUBY) -rrake -e 'Rake.application.run'
 DEST_RUBY_LIBDIR = $(DESTDIR)$(RUBY_LIBDIR)/ruby
 PLUGINS = \
-  fluent-plugin-td-0.10.5.gem \
+  fluent-plugin-td-0.10.6.gem \
   fluent-plugin-scribe-0.10.7.gem \
-  bson_ext-1.6.1.gem bson-1.6.1.gem mongo-1.6.1.gem fluent-plugin-mongo-0.6.7.gem \
+  bson_ext-1.6.2.gem bson-1.6.2.gem mongo-1.6.2.gem fluent-plugin-mongo-0.6.7.gem \
   fluent-plugin-s3-0.2.2.gem
 
 td-agent: plugins

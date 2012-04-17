@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.3.1
+Version: 1.1.4
 License: APL2
 Release: 0%{?dist}
 
@@ -34,7 +34,7 @@ BuildRequires: gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel libxsl
 
 %build
 ./autogen.sh
-./make_dist.sh
+
 %configure
 make %{?_smp_mflags}
 
@@ -118,6 +118,14 @@ fi
 /var/log/td-agent
 
 %changelog
+* Sat Apr 17 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.4
+- use ruby-1.9.3-p125
+- use jemalloc v2.2.5, to avoid memory fragmentations
+- fluentd v0.10.19
+- fluent-plugin-mongo v0.6.7
+- fluent-plugin-td v0.10.6
+
 * Sat Mar 25 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.3.1
 - fix not to start td-agent daemon, when installing. thx @moriyoshi.

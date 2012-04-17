@@ -33,6 +33,15 @@ if [ -n "${PIDFILE}" ]; then
 	TD_AGENT_ARGS="${TD_AGENT_ARGS} --daemon ${PIDFILE}"
 fi
 
+# 2012/04/17 Kazuki Ohta <k@treasure-data.com>
+# use jemalloc to avoid fragmentation
+if [ -f "/usr/lib/fluent/jemalloc/lib/libjemalloc.so" ]; then
+        export LD_PRELOAD=/usr/lib/fluent/jemalloc/lib/libjemalloc.so
+fi
+if [ -f "/usr/lib64/fluent/jemalloc/lib/libjemalloc.so" ]; then
+        export LD_PRELOAD=/usr/lib64/fluent/jemalloc/lib/libjemalloc.so
+fi
+
 RETVAL=0
 
 start() {
