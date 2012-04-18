@@ -57,6 +57,12 @@ if [ -n "${GROUP}" ]; then
 	START_STOP_DAEMON_ARGS="${START_STOP_DAEMON_ARGS} --group ${GROUP}"
 fi
 
+# 2012/04/17 Kazuki Ohta <k@treasure-data.com>
+# Use jemalloc to avoid memory fragmentation
+if [ -f "/usr/lib/fluent/jemalloc/lib/libjemalloc.so" ]; then/
+	export LD_PRELOAD=/usr/lib/fluent/jemalloc/lib/libjemalloc.so
+fi
+
 #
 # Function that starts the daemon/service
 #

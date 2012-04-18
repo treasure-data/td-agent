@@ -1,14 +1,19 @@
 td-agent (1.1.4-1) lucid; urgency=low
 
-  * fluent-plugin-mongo v0.6.6
+  * v1.1.4
+  * use ruby-1.9.3-p125
+  * use jemalloc v2.2.5, to avoid memory fragmentations
+  * fluentd v0.10.19
+  * fluent-plugin-mongo v0.6.7
+  * fluent-plugin-td v0.10.6
 
- -- Kazuki Ohta <k@treasure-data.com>  Wed, 08 Feb 2012 23:24:08 +0000
+ -- Kazuki Ohta <k@treasure-data.com>  Wed, 17 Apr 2012 23:24:08 +0000
 
 td-agent (1.1.3-1) lucid; urgency=low
 
   * fluent-plugin-mongo v0.6.6
 
- -- Kazuki Ohta <k@treasure-data.com>  Wed, 08 Feb 2012 23:24:08 +0000
+ -- Kazuki Ohta <k@treasure-data.com>  Wed, 10 Mar 2012 23:24:08 +0000
 
 td-agent (1.1.2-1) lucid; urgency=low
 
