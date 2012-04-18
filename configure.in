@@ -50,7 +50,7 @@ if test ! -d deps/ruby; then
     mv deps/ruby-extract/* deps/ruby
 fi
 
-cd deps/ruby && ./configure "--prefix=$ruby_prefix" \
+cd deps/ruby && sed -i -e 's/check: test test-all/check:/' common.mk && ./configure "--prefix=$ruby_prefix" \
     --disable-install-doc \
     --with-out-ext=dbm \
     --with-out-ext=fiddle \

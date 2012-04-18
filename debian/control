@@ -3,7 +3,8 @@ Section: Network
 Priority: optional
 Maintainer: Kazuki Ohta <k@treasure-data.com>
 Build-Depends:
-  debhelper (>= 7.0.50~),
+  debhelper (>= 7.0.15~),
+  dh-make,
   sudo,
   autoconf,
   automake,
