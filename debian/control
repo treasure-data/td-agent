@@ -4,6 +4,11 @@ Priority: optional
 Maintainer: Kazuki Ohta <k@treasure-data.com>
 Build-Depends:
   debhelper (>= 7.0.50~),
+  sudo,
+  autoconf,
+  automake,
+  fakeroot,
+  libtool,
   autotools-dev,
   libssl-dev,
   wget,
