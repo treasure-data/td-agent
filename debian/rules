@@ -5,15 +5,8 @@
 # As a special exception, when this file is copied by dh-make into a
 # dh-make output file, you may use that output file without restriction.
 # This special exception was added by Craig Small in version 0.37 of dh-make.
-ifeq ( $(shell [ -e /etc/dpkg/origins/default ]; printf $$?), 0)
-	ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes), yes)
-		SUBSTVARS = -Vdist:Depends="libyaml-0-2"
-	else
-		SUBSTVARS = -Vdist:Depends="libyaml-0-2"
-	endif
-else
-	SUBSTVARS = -Vdist:Depends="libyaml-0-1"
-endif
+
+SUBSTVARS = -Vdist:Depends="$(shell (lsb_release -a 2>/dev/null | grep -q Ubuntu) && echo libyaml-0-2 || echo libyaml-0-1)"
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1

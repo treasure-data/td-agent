@@ -59,7 +59,7 @@ fi
 
 # 2012/04/17 Kazuki Ohta <k@treasure-data.com>
 # Use jemalloc to avoid memory fragmentation
-if [ -f "/usr/lib/fluent/jemalloc/lib/libjemalloc.so" ]; then/
+if [ -f "/usr/lib/fluent/jemalloc/lib/libjemalloc.so" ]; then
 	export LD_PRELOAD=/usr/lib/fluent/jemalloc/lib/libjemalloc.so
 fi
 
