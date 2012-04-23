@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.4
+Version: 1.1.4.4
 License: APL2
 Release: 0%{?dist}
 
@@ -13,13 +13,13 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-%(%{__id_u} -n)
 
 Requires: /usr/sbin/useradd /usr/sbin/groupadd
 Requires: /sbin/chkconfig
-Requires: openssl readline libxslt libxml2 libyaml
+Requires: openssl readline libxslt libxml2 td-libyaml
 Requires(pre): shadow-utils
 Requires(post): /sbin/chkconfig
 Requires(post): /sbin/service
 Requires(preun): /sbin/chkconfig
 Requires(preun): /sbin/service
-BuildRequires: gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel libxslt-devel libxml2-devel libyaml-devel
+BuildRequires: gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel libxslt-devel libxml2-devel
 
 # 2011/08/01 Kazuki Ohta <kazuki.ohta@gmail.com>
 # prevent stripping the debug info.
@@ -118,6 +118,10 @@ fi
 /var/log/td-agent
 
 %changelog
+* Mon Apr 23 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.4.4
+- depends on td-libyaml for both RHEL5 and RHEL6
+
 * Sat Apr 17 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.4
 - use ruby-1.9.3-p125
