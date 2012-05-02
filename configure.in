@@ -21,6 +21,7 @@ fi
 exec_prefix=$prefix
 jemalloc_prefix=`eval echo $libdir/fluent/jemalloc`
 ruby_prefix=`eval echo $libdir/fluent/ruby`
+libyaml_prefix=`eval echo $libdir/fluent/libyaml`
 
 exec_prefix=$orig_exec_prefix
 prefix=$orig_prefix
@@ -59,4 +60,5 @@ cd deps/ruby && sed -i -e 's/check: test test-all/check:/' common.mk && ./config
     --with-out-ext=racc \
     --with-out-ext=ripper \
     --with-out-ext=sdbm \
-    --with-out-ext=tk
+    --with-out-ext=tk \
+    --with-libyaml-dir=$libyaml_prefix

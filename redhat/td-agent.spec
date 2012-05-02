@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.4.4
+Version: 1.1.5
 License: APL2
 Release: 0%{?dist}
 
@@ -118,6 +118,12 @@ fi
 /var/log/td-agent
 
 %changelog
+* Tue May 01 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.5
+- ruby v1.9.3-p194 (security fix)
+- fluentd v0.10.21
+- add --with-libyaml-dir to ruby's configure options
+
 * Mon Apr 23 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.4.4
 - depends on td-libyaml for both RHEL5 and RHEL6
