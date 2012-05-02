@@ -53,7 +53,7 @@ Please refer the document (http://docs.treasure-data.com).
 
 td-agent consists of the following components, and packaged as rpm/deb.
 
-* ruby (1.9.3-p125): http://www.ruby-lang.org/en/
+* ruby (1.9.3-p194): http://www.ruby-lang.org/en/
 * jemalloc: http://www.canonware.com/jemalloc/
 * fluentd: https://github.com/fluent/fluentd
 * fluent-plugin-mongo: https://github.com/fluent/fluent-plugin-mongo
