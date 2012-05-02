@@ -61,6 +61,11 @@ td-agent consists of the following components, and packaged as rpm/deb.
 * fluent-plugin-scribe: https://github.com/fluent/fluent-plugin-scribe
 * fluent-plugin-td: https://github.com/treasure-data/fluent-plugin-td
 
+td-agent depends on those packages.
+
+* openssl, readline, libxslt, libxml2
+* [td-libyaml](https://github.com/treasure-data/td-libyaml) (rpm) or libyaml (deb)
+
 # License
 
 Released under the Apache2 license.
