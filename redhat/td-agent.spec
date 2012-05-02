@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.5
+Version: 1.1.5.1
 License: APL2
 Release: 0%{?dist}
 
@@ -118,6 +118,10 @@ fi
 /var/log/td-agent
 
 %changelog
+* Wed May 02 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.5.1
+- fluentd v0.10.22
+
 * Tue May 01 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.5
 - ruby v1.9.3-p194 (security fix)
