@@ -1,3 +1,11 @@
+td-agent (1.1.5.1-1) lucid; urgency=low
+
+  * ruby v1.9.3-p194 (security fix)
+  * fluentd v0.10.22
+  * add --with-libyaml-dir to ruby's configure options
+
+ -- Kazuki Ohta <k@treasure-data.com>  Wed, 02 May 2012 23:24:08 +0000
+
 td-agent (1.1.4.3-1) lucid; urgency=low
 
   * fixed init.d syntax problem
