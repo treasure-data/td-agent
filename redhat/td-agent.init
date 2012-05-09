@@ -56,7 +56,11 @@ start() {
 
 stop() {
 	echo -n "Shutting down $name: "
-	killproc -p $PIDFILE || killproc $prog
+	if [ -e "${PIDFILE}" ]; then
+		killproc -p ${PIDFILE} || killproc $prog
+	else
+		killproc $prog
+	fi
 	RETVAL=$?
 	echo
 	[ $RETVAL -eq 0 ] && rm -f $PIDFILE && rm -f /var/lock/subsys/$prog
