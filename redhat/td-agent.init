@@ -22,6 +22,7 @@
 name="td-agent"
 prog="td-agent"
 td_agent=/usr/sbin/$prog
+
 PIDFILE=/var/run/td-agent/$prog.pid
 
 DAEMON_ARGS=""
@@ -55,7 +56,11 @@ start() {
 
 stop() {
 	echo -n "Shutting down $name: "
-	killproc $prog
+	if [ -e "${PIDFILE}" ]; then
+		killproc -p ${PIDFILE} || killproc $prog
+	else
+		killproc $prog
+	fi
 	RETVAL=$?
 	echo
 	[ $RETVAL -eq 0 ] && rm -f $PIDFILE && rm -f /var/lock/subsys/$prog
