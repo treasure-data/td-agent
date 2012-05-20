@@ -12,7 +12,7 @@ DEST_RAKE = $(DEST_RUBY) -rrake -e 'Rake.application.run'
 DEST_RUBY_LIBDIR = $(DESTDIR)$(RUBY_LIBDIR)/ruby
 PLUGINS = \
   fluent-plugin-td-0.10.6.gem \
-  thrift-0.8.0 fluent-plugin-scribe-0.10.7.gem \
+  thrift-0.8.0.gem fluent-plugin-scribe-0.10.7.gem \
   fluent-plugin-flume-0.1.0.gem \
   bson_ext-1.6.2.gem bson-1.6.2.gem mongo-1.6.2.gem fluent-plugin-mongo-0.6.7.gem \
   fluent-plugin-s3-0.2.2.gem
@@ -49,6 +49,8 @@ install: install-recursive
 		RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
 			$(DEST_GEM) install --no-rdoc --no-ri "$(srcdir)/plugins/$$gem"; \
 	done
+	rm -fR "$(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/bson-1.6.2/bin/b2json"
+	rm -fR "$(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/bson-1.6.2/bin/j2bson"
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent
 	cp -f $(srcdir)/td-agent.conf $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf.tmpl
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d
