@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.5.1
+Version: 1.1.6
 License: APL2
 Release: 0%{?dist}
 
@@ -118,6 +118,11 @@ fi
 /var/log/td-agent
 
 %changelog
+* Sun May 20 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.6
+- remove ruby package dependency
+- fluent-plugn-flume v0.1.1 (new)
+
 * Wed May 02 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.5.1
 - fluentd v0.10.22
