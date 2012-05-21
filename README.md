@@ -1,12 +1,8 @@
 # About
 
-The event collector daemon, for Treasure Data Cloud. This daemon collects
-various types of logs/events via various way, and transfer them to the
-cloud.
+The event collector daemon, for Treasure Data. This daemon collects various types of logs/events via various way, and transfer them to the cloud. For more about Treasure Data, see the [homepage](http://treasure-data.com/), and the [documentation](http://docs.treasure-data.com/).
 
-For more about Treasure Data, see <http://treasure-data.com/>.
-
-For full documentation see <http://docs.treasure-data.com/>.
+td-agent is open sourced as [fluentd project](http://github.com/fluent/). In other words, td-agent is a distribution package of fluentd.
 
 # Requirement
 
@@ -59,6 +55,7 @@ td-agent consists of the following components, and packaged as rpm/deb.
 * fluent-plugin-mongo: https://github.com/fluent/fluent-plugin-mongo
 * fluent-plugin-s3: https://github.com/fluent/fluent-plugin-s3
 * fluent-plugin-scribe: https://github.com/fluent/fluent-plugin-scribe
+* fluent-plugin-flume: https://github.com/fluent/fluent-plugin-flume
 * fluent-plugin-td: https://github.com/treasure-data/fluent-plugin-td
 
 td-agent depends on those packages.
