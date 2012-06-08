@@ -1,3 +1,9 @@
+td-agent (1.1.6-1) lucid; urgency=low
+
+  * fluent-plugin-flume v0.1.1 (New)
+
+ -- Kazuki Ohta <k@treasure-data.com>  Sun, 20 May 2012 23:24:08 +0000
+
 td-agent (1.1.5.1-1) lucid; urgency=low
 
   * ruby v1.9.3-p194 (security fix)
