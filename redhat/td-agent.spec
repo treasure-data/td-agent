@@ -118,7 +118,7 @@ fi
 /var/log/td-agent
 
 %changelog
-* Sun May 20 2012 Kazuki Ohta <k@treasure-data.com>
+* Mon Jun 11 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.7
 - fluent-plugin-td v0.10.7
 - td v0.10.25 (new)

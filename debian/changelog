@@ -1,3 +1,11 @@
+td-agent (1.1.7-1) lucid; urgency=low
+
+  * fluent-plugin-td v0.10.7
+  * td v0.10.25 (new)
+  * install /usr/bin/td (new)
+
+ -- Kazuki Ohta <k@treasure-data.com>  Mon, 11 Jun 2012 23:24:08 +0000
+
 td-agent (1.1.6-1) lucid; urgency=low
 
   * fluent-plugin-flume v0.1.1 (New)
