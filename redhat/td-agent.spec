@@ -120,6 +120,9 @@ fi
 %changelog
 * Mon Jun 11 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.7
+- bson_ext v1.6.4
+- bson v1.6.4
+- mongo v1.6.4
 - fluent-plugin-td v0.10.7
 - td v0.10.25 (new)
 - install /usr/bin/td (new)

@@ -1,5 +1,8 @@
 td-agent (1.1.7-1) lucid; urgency=low
 
+  * bson_ext v1.6.4
+  * bson v1.6.4
+  * mongo v1.6.4
   * fluent-plugin-td v0.10.7
   * td v0.10.25 (new)
   * install /usr/bin/td (new)

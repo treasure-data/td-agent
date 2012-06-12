@@ -15,7 +15,7 @@ PLUGINS = \
   td-0.10.25.gem fluent-plugin-td-0.10.7.gem \
   thrift-0.8.0.gem fluent-plugin-scribe-0.10.9.gem \
   fluent-plugin-flume-0.1.1.gem \
-  bson_ext-1.6.2.gem bson-1.6.2.gem mongo-1.6.2.gem fluent-plugin-mongo-0.6.7.gem \
+  bson-1.6.4.gem bson_ext-1.6.4.gem mongo-1.6.4.gem fluent-plugin-mongo-0.6.7.gem \
   fluent-plugin-s3-0.2.2.gem
 
 td: plugins
