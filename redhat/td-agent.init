@@ -23,10 +23,13 @@ name="td-agent"
 prog="td-agent"
 td_agent=/usr/sbin/$prog
 
-PIDFILE=/var/run/td-agent/$prog.pid
+if [ -f /etc/sysconfig/$prog ]; then
+        . /etc/sysconfig/$prog
+fi
 
-DAEMON_ARGS=""
-TD_AGENT_ARGS="--user td-agent --group td-agent --log /var/log/td-agent/td-agent.log"
+PIDFILE=${PIDFILE-/var/run/td-agent/$prog.pid}
+DAEMON_ARGS=${DAEMON_ARGS-}
+TD_AGENT_ARGS="${TD_AGENT_ARGS---user td-agent --group td-agent --log /var/log/td-agent/td-agent.log}"
 
 if [ -n "${PIDFILE}" ]; then
 	mkdir -p $(dirname ${PIDFILE})
