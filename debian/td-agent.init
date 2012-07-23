@@ -18,9 +18,9 @@ GROUP=td-agent                  # Running group
 DESC=td-agent                   # Introduce a short description here
 NAME=td-agent                   # Introduce the short server's name here
 PIDFILE=/var/run/$NAME/$NAME.pid
-DAEMON=/usr/sbin/td-agent       # Introduce the server's location here
+DAEMON=/usr/lib/fluent/ruby/bin/ruby # Introduce the server's location here
 # Arguments to run the daemon with
-DAEMON_ARGS="--daemon $PIDFILE --log /var/log/td-agent/td-agent.log"
+DAEMON_ARGS="/usr/sbin/td-agent --daemon $PIDFILE --log /var/log/td-agent/td-agent.log"
 SCRIPTNAME=/etc/init.d/$NAME
 START_STOP_DAEMON_ARGS=""
 
