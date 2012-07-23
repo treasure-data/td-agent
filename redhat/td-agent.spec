@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.7
+Version: 1.1.8
 License: APL2
 Release: 0%{?dist}
 
@@ -118,6 +118,10 @@ fi
 /var/log/td-agent
 
 %changelog
+* Mon Jul 23 2012 Kazuki Ohta <k@treasure-data.com>
+- fluentd v0.10.25
+- fix critical problem of duplicate daemon launching
+
 * Mon Jun 11 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.7
 - bson_ext v1.6.4

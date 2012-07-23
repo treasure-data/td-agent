@@ -21,12 +21,15 @@
 
 name="td-agent"
 prog="td-agent"
-td_agent=/usr/sbin/$prog
+td_agent=/usr/lib/fluent/ruby/bin/ruby
+if [ -f "/usr/lib64/fluent/ruby/bin/ruby" ]; then
+	td_agent=/usr/lib64/fluent/ruby/bin/ruby
+fi
 
 PIDFILE=/var/run/td-agent/$prog.pid
 
 DAEMON_ARGS=""
-TD_AGENT_ARGS="--user td-agent --group td-agent --log /var/log/td-agent/td-agent.log"
+TD_AGENT_ARGS="/usr/sbin/td-agent --user td-agent --group td-agent --log /var/log/td-agent/td-agent.log"
 
 if [ -n "${PIDFILE}" ]; then
 	mkdir -p $(dirname ${PIDFILE})
@@ -47,7 +50,7 @@ RETVAL=0
 
 start() {
 	echo -n "Starting $name: "
-	daemon $DAEMON_ARGS $td_agent "$TD_AGENT_ARGS"
+	daemon --pidfile=$PIDFILE $DAEMON_ARGS $td_agent "$TD_AGENT_ARGS"
 	RETVAL=$?
 	echo
 	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/$prog
@@ -88,8 +91,10 @@ case "$1" in
     condrestart)
 	[ -f /var/lock/subsys/$prog ] && restart || :
 	;;
+
     status)
-	status $td_agent
+	status -p $PIDFILE 'td-agent'
+	RETVAL=$?
 	;;
     *)
 	echo "Usage: $prog {start|stop|reload|restart|condrestart|status}"
