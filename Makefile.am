@@ -19,8 +19,8 @@ PLUGINS = \
   fluent-plugin-s3-0.2.2.gem
 
 td: plugins
-	echo `#!/bin/sh` > $@
-	echo '$(RUBY_BINDIR)/td' >> $@
+	echo '#!/bin/sh' > $@
+	echo '$(RUBY_BINDIR)/td $@' >> $@
 	chmod 755 $@
 
 td-agent: plugins
