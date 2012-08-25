@@ -11,7 +11,7 @@ if [ ! -z "$1" ]; then
 fi
 
 # install required packages
-yum install -y emacs zlib-devel automake autoconf libtool auto-buildrequires openssl-devel
+yum install -y zlib-devel automake autoconf libtool auto-buildrequires openssl-devel
 
 # setup td-agent-$version.tar.gz from fluentd.git
 rm -fR fluentd
