@@ -20,7 +20,7 @@ PLUGINS = \
 
 td: plugins
 	echo '#!/bin/sh' > $@
-	echo '$(RUBY_BINDIR)/td $@' >> $@
+	echo '$(RUBY_BINDIR)/td "$$@"' >> $@
 	chmod 755 $@
 
 td-agent: plugins
