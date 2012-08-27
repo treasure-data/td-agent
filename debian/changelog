@@ -1,3 +1,9 @@
+td-agent (1.1.9-1) precise; urgency=low
+
+  * fix problem of /usr/bin/td, which doesn't take any cmd arguments
+
+ -- Kazuki Ohta <k@treasure-data.com>  Mon, 27 Aug 2012 23:24:08 +0000
+
 td-agent (1.1.8-1) lucid; urgency=low
 
   * fluentd v0.10.25

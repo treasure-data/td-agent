@@ -27,7 +27,7 @@ yes | dh_make -e k@treasure-data.com --single -f ../$dst.tar.gz
 dpkg-buildpackage -rfakeroot -us -uc -S
 popd
 
-DISTS='lucid'
+DISTS='lucid precise'
 ARCHITECTURES='i386 amd64'
 
 for dist in $DISTS; do
