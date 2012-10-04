@@ -53,6 +53,7 @@ td-agent consists of the following components, and packaged as rpm/deb.
 * jemalloc: http://www.canonware.com/jemalloc/
 * fluentd: https://github.com/fluent/fluentd
 * fluent-plugin-mongo: https://github.com/fluent/fluent-plugin-mongo
+* fluent-plugin-webhdfs: https://github.com/fluent/fluent-plugin-webhdfs
 * fluent-plugin-s3: https://github.com/fluent/fluent-plugin-s3
 * fluent-plugin-scribe: https://github.com/fluent/fluent-plugin-scribe
 * fluent-plugin-flume: https://github.com/fluent/fluent-plugin-flume
