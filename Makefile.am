@@ -60,8 +60,9 @@ install: install-recursive
 		RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
 			$(DEST_GEM) install --no-rdoc --no-ri "$(srcdir)/plugins/$$gem"; \
 	done
-	rm -fR "$(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/bson-1.6.2/bin/b2json"
-	rm -fR "$(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/bson-1.6.2/bin/j2bson"
+	rm -fR $(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/bson-*/bin/b2json
+	rm -fR $(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/bson-*/bin/j2bson
+	rm -fR $(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/td-*/dist/resources/pkg/td
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent
 	cp -f $(srcdir)/td-agent.conf $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf.tmpl
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d
