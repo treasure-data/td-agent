@@ -21,8 +21,8 @@ PLUGINS = \
 
 td: plugins
 	echo '#!/bin/sh' > $@
-	echo 'ENV["GEM_HOME"]="$(RUBY_LIBDIR)/ruby/gems/1.9.1/"' >> $@
-	echo 'ENV["GEM_PATH"]="$(RUBY_LIBDIR)/ruby/gems/1.9.1/"' >> $@
+	echo 'export GEM_HOME="$(RUBY_LIBDIR)/ruby/gems/1.9.1/"' >> $@
+	echo 'export GEM_PATH="$(RUBY_LIBDIR)/ruby/gems/1.9.1/"' >> $@
 	echo '$(RUBY_BINDIR)/td "$$@"' >> $@
 	chmod 755 $@
 
