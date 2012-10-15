@@ -1,3 +1,14 @@
+td-agent (1.1.10-1) precise; urgency=low
+
+  * fluentd v0.10.27
+  * fluent-plugin-mongo v0.6.9
+  * fluent-plugin-webhdfs v0.5.1
+  * fluent-plugin-td v0.10.11
+  * enable debug agent by default (td-agent.conf)
+  * set GEM_HOME and GEM_PATH at /usr/[s]bin/scripts to avoid RVM conflicts
+
+ -- Kazuki Ohta <k@treasure-data.com>  Mon, 15 Oct 2012 23:24:08 +0000
+
 td-agent (1.1.9-1) precise; urgency=low
 
   * fix problem of /usr/bin/td, which doesn't take any cmd arguments
