@@ -1,6 +1,6 @@
 td-agent (1.1.10.1-1) precise; urgency=low
 
-  * fix /usr/bin/td error for setting GEM_HOME and GEM_PATH
+  * fix /usr/bin/td error of setting GEM_HOME and GEM_PATH
 
  -- Kazuki Ohta <k@treasure-data.com>  Mon, 15 Oct 2012 23:24:08 +0000
 
