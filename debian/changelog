@@ -1,3 +1,7 @@
+td-agent (1.1.10.2-1) precise; urgency=low
+
+  * fluent-plugin-td v0.10.12
+
 td-agent (1.1.10.1-1) precise; urgency=low
 
   * fix /usr/bin/td error of setting GEM_HOME and GEM_PATH
