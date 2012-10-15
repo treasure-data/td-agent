@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.9
+Version: 1.1.10
 License: APL2
 Release: 0%{?dist}
 
@@ -118,6 +118,15 @@ fi
 /var/log/td-agent
 
 %changelog
+* Mon Oct 15 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.10
+- fluentd v0.10.27
+- fluent-plugin-mongo v0.6.9
+- fluent-plugin-webhdfs v0.5.1
+- fluent-plugin-td v0.10.11
+- enable debug agent by default (td-agent.conf)
+- set GEM_HOME and GEM_PATH at /usr/[s]bin/scripts to avoid RVM conflicts
+
 * Mon Aug 27 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.9
 - fix problem of /usr/bin/td, which doesn't take any cmd arguments
