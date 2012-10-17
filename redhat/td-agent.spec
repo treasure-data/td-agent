@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.10.2
+Version: 1.1.10.3
 License: APL2
 Release: 0%{?dist}
 
@@ -118,10 +118,16 @@ fi
 /var/log/td-agent
 
 %changelog
+* Tue Oct 16 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.10.3
+- td-client v0.8.34
+
 * Mon Oct 15 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.10.2
 - fluent-plugin-td v0.10.12
 
 * Mon Oct 15 2012 Kazuki Ohta <k@treasure-data.com>
+- v1.1.10.1
 - fix /usr/bin/td error of setting GEM_HOME and GEM_PATH
 
 * Mon Oct 15 2012 Kazuki Ohta <k@treasure-data.com>
