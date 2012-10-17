@@ -1,6 +1,14 @@
+td-agent (1.1.10.3-1) precise; urgency=low
+
+  * td-client v0.8.34
+
+ -- Kazuki Ohta <k@treasure-data.com>  Tue, 16 Oct 2012 23:24:08 +0000
+
 td-agent (1.1.10.2-1) precise; urgency=low
 
   * fluent-plugin-td v0.10.12
+
+ -- Kazuki Ohta <k@treasure-data.com>  Mon, 15 Oct 2012 23:24:08 +0000
 
 td-agent (1.1.10.1-1) precise; urgency=low
 
