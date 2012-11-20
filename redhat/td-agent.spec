@@ -118,6 +118,9 @@ fi
 /var/log/td-agent
 
 %changelog
+* Tue Nov 20 2012 Peter Gillard-Moss <pgillard@thoughtworks.com>
+- fluent-plugin-s3 v0.2.3
+
 * Tue Oct 16 2012 Kazuki Ohta <k@treasure-data.com>
 - v1.1.10.3
 - td-client v0.8.34
