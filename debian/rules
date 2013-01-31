@@ -6,7 +6,7 @@
 # dh-make output file, you may use that output file without restriction.
 # This special exception was added by Craig Small in version 0.37 of dh-make.
 
-SUBSTVARS = -Vdist:Depends="$(shell (lsb_release -a 2>/dev/null | grep -q Ubuntu) && echo libyaml-0-2 || echo libyaml-0-1)"
+SUBSTVARS = -Vdist:Depends="$(shell (lsb_release -a 2>/dev/null | grep -q 'Ubuntu\|squeeze') && echo libyaml-0-2 || echo libyaml-0-1)"
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
