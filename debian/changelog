@@ -5,7 +5,7 @@ td-agent (1.1.11-1) precise; urgency=low
   * fluent-plugin-td v0.10.13
   * fluent-plugin-mongo v0.6.11
 
- -- Kazuki Ohta <k@treasure-data.com>  Tur, 06 Dec 2012 23:24:08 +0000
+ -- Kazuki Ohta <k@treasure-data.com>  Thu, 06 Dec 2012 23:24:08 +0000
 
 td-agent (1.1.10.3-1) precise; urgency=low
 
