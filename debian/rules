@@ -1,17 +1,13 @@
 #!/usr/bin/make -f
-# Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-SUBSTVARS = -Vdist:Depends="$(shell (lsb_release -a 2>/dev/null | grep -q 'Ubuntu\|squeeze') && echo libyaml-0-2 || echo libyaml-0-1)"
-
+OPTION="--prefix=/usr --sysconfdir=/etc --localstatedir=/var/"
 
 %:
 	dh $@ 
 
 override_dh_auto_configure:
-	/bin/sh ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/
+	$(CURDIR)/configure $(OPTION)
 
 override_dh_auto_test:
-
-override_dh_gencontrol:
-	dh_gencontrol -- $(SUBSTVARS)
+	true
