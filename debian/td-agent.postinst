@@ -10,12 +10,6 @@ add_system_user() {
     fi
 }
 
-add_directories() {
-    mkdir -p /var/run/td-agent
-    mkdir -p /etc/td-agent
-    mkdir -p /var/log/td-agent
-}
-
 fixperms() {
     dpkg-statoverride --list /var/run/td-agent >/dev/null || \
         dpkg-statoverride --update --add td-agent td-agent 0755 /var/run/td-agent
@@ -64,7 +58,6 @@ update_conffile() {
 case "$1" in
     configure)
         add_system_user
-        add_directories
         fixperms
         update_conffile /etc/td-agent/td-agent.conf /etc/td-agent/td-agent.conf.tmpl
         ;;
