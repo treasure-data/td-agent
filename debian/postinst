@@ -10,15 +10,6 @@ add_system_user() {
     fi
 }
 
-fixperms() {
-    dpkg-statoverride --list /var/run/td-agent >/dev/null || \
-        dpkg-statoverride --update --add td-agent td-agent 0755 /var/run/td-agent
-    dpkg-statoverride --list /etc/td-agent >/dev/null || \
-        dpkg-statoverride --update --add td-agent td-agent 0755 /etc/td-agent
-    dpkg-statoverride --list /var/log/td-agent >/dev/null || \
-        dpkg-statoverride --update --add td-agent td-agent 0755 /var/log/td-agent
-}
-
 update_conffile() {
     CONFFILE="$1"
     TMPL="$2"
@@ -58,7 +49,6 @@ update_conffile() {
 case "$1" in
     configure)
         add_system_user
-        fixperms
         update_conffile /etc/td-agent/td-agent.conf /etc/td-agent/td-agent.conf.tmpl
         ;;
     abort-upgrade|abort-deconfigure|abort-remove)
