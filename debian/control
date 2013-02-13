@@ -1,5 +1,5 @@
 Source: td-agent
-Section: Network
+Section: net
 Priority: optional
 Maintainer: Hideki Yamane <henrich@debian.org>
 Build-Depends:
