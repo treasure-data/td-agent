@@ -1,3 +1,12 @@
+td-agent (1.1.11-2) UNRELEASED; urgency=low
+
+  * remove unnecessary *.ex files
+  * improve debian/control
+    - remove fakeroot, sudo, dh-make
+    - remove dh_auto_build target 
+
+ -- Hideki Yamane <henrich@debian.org>  Tue, 05 Feb 2013 15:38:25 +0900
+
 td-agent (1.1.11-1) precise; urgency=low
 
   * fluentd v0.10.30
