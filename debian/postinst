@@ -6,7 +6,7 @@ prevver="$2"
 
 add_system_user() {
     if ! getent passwd td-agent >/dev/null; then
-        adduser --group --system --no-create-home td-agent
+        adduser --quiet --system --group --no-create-home td-agent 
     fi
 }
 
