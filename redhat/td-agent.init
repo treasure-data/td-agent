@@ -30,8 +30,8 @@ if [ -f /etc/sysconfig/$prog ]; then
 	. /etc/sysconfig/$prog
 fi
 PIDFILE=${PIDFILE-/var/run/td-agent/$prog.pid}
-DAEMON_ARGS=${DAEMON_ARGS-}
-TD_AGENT_ARGS="${TD_AGENT_ARGS-/usr/sbin/td-agent --user td-agent --group td-agent --log /var/log/td-agent/td-agent.log}"
+DAEMON_ARGS=${DAEMON_ARGS---user td-agent}
+TD_AGENT_ARGS="${TD_AGENT_ARGS-/usr/sbin/td-agent --group td-agent --log /var/log/td-agent/td-agent.log}"
 
 if [ -n "${PIDFILE}" ]; then
 	mkdir -p $(dirname ${PIDFILE})
