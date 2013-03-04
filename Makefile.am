@@ -15,7 +15,7 @@ PLUGINS = \
   td-client-0.8.39.gem td-0.10.63.gem fluent-plugin-td-0.10.13.gem \
   thrift-0.8.0.gem fluent-plugin-scribe-0.10.10.gem \
   fluent-plugin-flume-0.1.1.gem \
-  bson-1.6.4.gem bson_ext-1.6.4.gem mongo-1.6.4.gem fluent-plugin-mongo-0.6.11.gem \
+  bson-1.6.4.gem bson_ext-1.6.4.gem mongo-1.6.4.gem fluent-plugin-mongo-0.6.13.gem \
   aws-sdk-1.8.3.1.gem fluent-plugin-s3-0.3.0.gem \
   webhdfs-0.5.1.gem fluent-plugin-webhdfs-0.1.0.gem
 
