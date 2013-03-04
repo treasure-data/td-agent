@@ -1,0 +1,3 @@
+var/run/td-agent
+var/log/td-agent
+etc/td-agent

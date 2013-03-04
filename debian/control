@@ -1,25 +1,22 @@
 Source: td-agent
-Section: Network
+Section: net
 Priority: optional
-Maintainer: Kazuki Ohta <k@treasure-data.com>
+Maintainer: Hideki Yamane <henrich@debian.org>
 Build-Depends:
   debhelper (>= 7.0.15~),
-  dh-make,
-  sudo,
   autoconf,
   automake,
-  fakeroot,
   libtool,
   autotools-dev,
   libssl-dev,
   wget,
-  git-core,
+  git,
   libxslt1.1,
   libxslt1-dev,
   libxml2,
   libxml2-dev,
   libyaml-dev
-Standards-Version: 3.9.1
+Standards-Version: 3.9.4
 Homepage: http://treasure-data.com/
 #Vcs-Git: git://git.debian.org/collab-maint/td-agent.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/td-agent.git;a=summary
@@ -29,9 +26,9 @@ Architecture: any
 Depends:
   ${shlibs:Depends},
   ${misc:Depends},
-  ${dist:Depends},
   libssl0.9.8,
   libxslt1.1,
-  libxml2
+  libxml2,
+  adduser
 Recommends: ntp
 Description: A data collector agent for Treasure Data

@@ -32,7 +32,6 @@ START_STOP_DAEMON_ARGS=""
 
 # Load the VERBOSE setting and other rcS variables
 # . /lib/init/vars.sh
-VERBOSE="yes"
 
 # Define LSB log_* functions.
 # Depend on lsb-base (>= 3.0-6) to ensure that this file is present.
