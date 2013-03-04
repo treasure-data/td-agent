@@ -1,0 +1,13 @@
+/var/log/td-agent/td-agent.log {
+  daily
+  rotate 30
+  compress
+  delaycompress
+  notifempty
+  create 640 td-agent td-agent
+  sharedscripts
+  postrotate
+    pid=/var/run/td-agent/td-agent.pid
+    test -s $pid && kill -USR1 "$(cat $pid)"
+  endscript
+}
