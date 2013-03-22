@@ -67,6 +67,8 @@ install: install-recursive
 	cp -f $(srcdir)/td-agent.conf $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf.tmpl
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d
 	cp -f $(srcdir)/td-agent.prelink.conf $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d/td-agent.conf
+	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/logrotate.d
+	cp -f $(srcdir)/debian/td-agent.logrotate $(DESTDIR)$(sysconfdir)/td-agent/logrotate.d/td-agent.logrotate
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/plugin
 
 dist:

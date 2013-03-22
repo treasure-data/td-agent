@@ -76,6 +76,12 @@ elif [ -f "/etc/prelink.conf" ]; then
   fi
 fi
 
+# 2013/03/04 Kazuki Ohta <k@treasure-data.com>
+# Install log rotation script.
+if [ -d "/etc/logrotate.d/" ]; then
+  cp -f /etc/td-agent/logrotate.d/td-agent.logrotate /etc/logrotate.d/td-agent
+fi
+
 # 2011/11/13 Kazuki Ohta <k@treasure-data.com>
 # Before td-agent v1.1.0, fluentd has a bug of loading plugin before changing
 # to the right user. Then, these directories were created with root permission.
