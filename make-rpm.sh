@@ -26,6 +26,7 @@ cp td-agent.prelink.conf $dst
 cp Makefile.am $dst
 cp autogen.sh $dst
 cp configure.in $dst
+cp -r ./debian $dst
 tar czf $dst.tar.gz $dst
 rm -fR $dst
 
