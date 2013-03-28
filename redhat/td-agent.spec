@@ -118,7 +118,9 @@ fi
 
 %files
 %defattr(-,root,root)
-/usr
+/usr/bin/td
+/usr/sbin/td-agent
+/usr/%{_lib}/fluent
 /etc/td-agent
 /etc/init.d/td-agent
 /var/log/td-agent
