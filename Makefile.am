@@ -9,7 +9,7 @@ unexport GEM_HOME
 unexport GEM_PATH
 DEST_RUBY = $(DESTDIR)$(RUBY_BINDIR)/ruby
 DEST_GEM = $(DEST_RUBY) -rrubygems -rrubygems/gem_runner -rrubygems/exceptions -rrubygems/installer -e 'class Gem::Installer; def shebang(bin_file_name) "\#\!$(RUBY_BINDIR)/ruby" end; end; Gem::GemRunner.new.run ARGV'
-DEST_RAKE = $(DEST_RUBY) -rrake -e 'Rake.application.run'
+DEST_FLUENTD_GEM = $(DEST_RUBY) $(DESTDIR)$(RUBY_BINDIR)/gem build fluentd.gemspec
 DEST_RUBY_LIBDIR = $(DESTDIR)$(RUBY_LIBDIR)/ruby
 PLUGINS = \
   td-client-0.8.39.gem td-0.10.63.gem fluent-plugin-td-0.10.13.gem \
@@ -51,7 +51,9 @@ install: install-recursive
 	done
 	cd "$(srcdir)" && \
 		RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
-		$(DEST_RAKE)
+		$(DEST_FLUENTD_GEM); \
+		mkdir -p $(srcdir)/pkg; \
+		cp -f fluentd-*.gem $(srcdir)/pkg
 	for gem in $(srcdir)/pkg/*.gem; do \
 		RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
 			$(DEST_GEM) install --no-rdoc --no-ri "$$gem"; \
