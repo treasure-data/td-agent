@@ -1,6 +1,9 @@
 #!/bin/bash
 
+CACHE_DIR=~/.tda_cache
+
 mkdir -p ac
+mkdir -p $CACHE_DIR
 test -f AUTHORS   || touch AUTHORS
 test -f COPYING   || touch COPYING
 test -f ChangeLog || touch ChangeLog
@@ -10,7 +13,13 @@ test -f README    || cp -f README.rdoc README
 
 function download() {
     if [ ! -f "$2" ];then
-        wget "$1/$2" -O "$2" || exit 1
+        cache_file="$CACHE_DIR/$2"
+        if [ -a "$cache_file" ]; then
+            cp -f $cache_file .
+        else
+            wget "$1/$2" -O "$2" || exit 1
+            cp -f $2 $cache_file
+        fi
     fi
 }
 
@@ -21,6 +30,7 @@ mkdir -p plugins
 cd deps
 download "http://www.canonware.com/download/jemalloc" "jemalloc-2.2.5.tar.bz2"
 download "http://ftp.ruby-lang.org/pub/ruby/1.9" "ruby-1.9.3-p194.tar.bz2"
+download "http://rubygems.org/downloads" "bundler-1.2.5.gem"
 download "http://rubygems.org/downloads" "json-1.5.2.gem"
 download "http://rubygems.org/downloads" "msgpack-0.4.4.gem"
 download "http://rubygems.org/downloads" "iobuffer-0.1.3.gem"
