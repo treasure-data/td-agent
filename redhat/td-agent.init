@@ -96,7 +96,6 @@ case "$1" in
 
     status)
 	status -p $PIDFILE 'td-agent'
-	RETVAL=$?
 	;;
     *)
 	echo "Usage: $prog {start|stop|reload|restart|condrestart|status}"
