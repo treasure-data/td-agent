@@ -16,7 +16,7 @@ cp -r fluentd $dst
 cp -r debian $dst
 cp td-agent.conf $dst
 cp td-agent.prelink.conf $dst
-cp td-agent.logrotate $dst/debian/
+cp td-agent.logrotate $dst
 cp Makefile.am $dst
 cp autogen.sh $dst
 cp configure.in $dst
