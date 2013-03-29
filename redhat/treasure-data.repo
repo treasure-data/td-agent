@@ -1,0 +1,4 @@
+[treasuredata]
+name=TreasureData
+baseurl=http://packages.treasure-data.com/redhat/$basearch
+gpgcheck=0
