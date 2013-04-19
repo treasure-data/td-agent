@@ -7,6 +7,7 @@ class TdAgent < Formula
   version '1.1.12'
 
   option 'fluentd-rev=<revision>', 'Using specify Fluentd revision'
+  option 'ruby-ver=<version>', 'Using specify Ruby version listed by ruby-build'
 
   # TODO: depends_on 'jemalloc' => :optional
   depends_on 'readline'
@@ -14,16 +15,16 @@ class TdAgent < Formula
   depends_on 'ruby-build'
 
   def install
-    install_ruby unless File.exist?(dest_ruby)
+    install_ruby
 
-    %W(bundler 1.2.5 json 1.5.2 msgpack 0.4.7 iobuffer 1.1.2
-       cool.io 1.1.0 http_parser.rb 0.5.1 yajl-ruby 1.0.0).each_slice(2) { |gem, version|
+    %W(bundler 1.3.5 msgpack 0.4.7 iobuffer 1.1.2
+       cool.io 1.1.0 http_parser.rb 0.5.1 yajl-ruby 1.1.0).each_slice(2) { |gem, version|
       install_gem(gem, version)
     }
 
     install_fluentd
 
-    %W(td-client 0.8.39 td 0.10.63 fluent-plugin-td 0.10.13
+    %W(td-client 0.8.47 td 0.10.75 fluent-plugin-td 0.10.13
        thrift 0.8.0 fluent-plugin-scribe 0.10.10
        fluent-plugin-flume 0.1.1 bson 1.8.4 bson_ext 1.8.4 mongo 1.8.4
        fluent-plugin-mongo 0.7.0 aws-sdk 1.8.3.1 fluent-plugin-s3 0.3.1
@@ -37,7 +38,7 @@ class TdAgent < Formula
     end
     (bin + "td-agent").write(td_agent_bin)
 
-    # TODO: Remove ruby related binary from /usr/local/bin
+    # TODO: Remove ruby related binaries from /usr/local/bin
     %W(j2bson b2json).each { |b|
       (bin + b).unlink rescue nil
     }
@@ -65,13 +66,18 @@ class TdAgent < Formula
 
   def caveats
     <<-EOS.undent
-    Default configuration file was created here:
+    td-agent configuration file and plugin directories were created:
 
-       #{td_agent_conf}
+        #{td_agent_conf}
+        #{etc}/td-agent/plugin
 
-    If you want to know the detail of Fluentd, see Fluentd documents at
+    You can invoke td-agent manually via td-agent command without launchctl:
 
-       http://docs.fluentd.org/
+        td-agent --pid #{var}/run/td-agent/td-agent.pid
+
+    If you want to know the details of Fluentd, see Fluentd documents at:
+
+        http://docs.fluentd.org/
     EOS
   end
 
@@ -107,9 +113,10 @@ class TdAgent < Formula
   end
 
   def install_ruby
+    ver = parse_option_value("ruby-ver", '1.9.3-p392')
     system <<EOS
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=#{Formula.factory('openssl').prefix} --with-readline-dir=#{Formula.factory('readline').prefix}" \
-#{Formula.factory('ruby-build').bin}/ruby-build 1.9.3-p194 #{prefix}
+#{Formula.factory('ruby-build').bin}/ruby-build #{ver} #{prefix}
 EOS
   end
 
@@ -136,15 +143,18 @@ EOS
   end
 
   def fluentd_rev
-    rev = '9ed984d88c21d77b4878f9fc7f31440d1f28ed27'
+    rev = parse_option_value("fluentd-rev", '9ed984d88c21d77b4878f9fc7f31440d1f28ed27')
+    ohai "Fluentd revision: #{rev}"
+    rev
+  end
+
+  def parse_option_value(opt, default)
     ARGV.each do |a|
-      if a.index('--fluentd-rev')
-        rev = a.sub('--fluentd-rev=', '')
-        break
+      if a.index("--#{opt}")
+        return a.sub("--#{opt}=", '')
       end
     end
 
-    ohai "Fluentd revision: #{rev}"
-    rev
+    return default
   end
 end
