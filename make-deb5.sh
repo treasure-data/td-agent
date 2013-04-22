@@ -17,6 +17,7 @@ cp -r debian $dst
 cp td-agent.conf $dst
 cp td-agent.prelink.conf $dst
 cp Makefile.am $dst
+cp td-agent.logrotate $dst
 cp autogen.sh $dst
 cp configure.in $dst
 tar czf $dst.tar.gz $dst
