@@ -12,7 +12,7 @@ DEST_GEM = $(DEST_RUBY) -rrubygems -rrubygems/gem_runner -rrubygems/exceptions -
 DEST_FLUENTD_GEM = $(DEST_RUBY) $(DESTDIR)$(RUBY_BINDIR)/gem build fluentd.gemspec
 DEST_RUBY_LIBDIR = $(DESTDIR)$(RUBY_LIBDIR)/ruby
 PLUGINS = \
-  td-client-0.8.48.gem td-0.10.75.gem fluent-plugin-td-0.10.14.gem \
+  td-client-0.8.48.gem td-0.10.76.gem fluent-plugin-td-0.10.14.gem \
   thrift-0.8.0.gem fluent-plugin-scribe-0.10.10.gem \
   fluent-plugin-flume-0.1.1.gem \
   bson-1.8.4.gem bson_ext-1.8.4.gem mongo-1.8.4.gem fluent-plugin-mongo-0.7.0.gem \
