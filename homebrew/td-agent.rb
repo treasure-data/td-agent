@@ -4,7 +4,7 @@ class TdAgent < Formula
   url 'https://github.com/treasure-data/td-agent.git', :revision => 'a9b4ea2cb198113208f1aa1af7865f4cae563545'
   head 'https://github.com/treasure-data/td-agent.git'
   homepage 'https://github.com/treasure-data/td-agent'
-  version '1.1.12'
+  version '1.1.13'
 
   option 'fluentd-rev=<revision>', 'Using specify Fluentd revision'
   option 'ruby-ver=<version>', 'Using specify Ruby version listed by ruby-build'
@@ -24,7 +24,7 @@ class TdAgent < Formula
 
     install_fluentd
 
-    %W(td-client 0.8.47 td 0.10.75 fluent-plugin-td 0.10.13
+    %W(td-client 0.8.48 td 0.10.76 fluent-plugin-td 0.10.14
        thrift 0.8.0 fluent-plugin-scribe 0.10.10
        fluent-plugin-flume 0.1.1 bson 1.8.4 bson_ext 1.8.4 mongo 1.8.4
        fluent-plugin-mongo 0.7.0 aws-sdk 1.8.3.1 fluent-plugin-s3 0.3.1
