@@ -13,6 +13,7 @@ Build-Depends:
   autotools-dev,
   libssl-dev,
   wget,
+  lsb-release,
   git-core,
   libxslt1.1,
   libxslt1-dev,
