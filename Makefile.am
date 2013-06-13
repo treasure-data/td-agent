@@ -16,7 +16,7 @@ PLUGINS = \
   thrift-0.8.0.gem fluent-plugin-scribe-0.10.10.gem \
   fluent-plugin-flume-0.1.1.gem \
   bson-1.8.4.gem bson_ext-1.8.4.gem mongo-1.8.4.gem fluent-plugin-mongo-0.7.0.gem \
-  aws-sdk-1.8.3.1.gem fluent-plugin-s3-0.3.1.gem \
+  nokogiri-1.5.10.gem aws-sdk-1.8.3.1.gem fluent-plugin-s3-0.3.1.gem \
   webhdfs-0.5.1.gem fluent-plugin-webhdfs-0.1.4.gem
 
 td: plugins
