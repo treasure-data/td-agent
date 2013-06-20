@@ -31,12 +31,12 @@ cd deps
 download "http://www.canonware.com/download/jemalloc" "jemalloc-2.2.5.tar.bz2"
 download "http://ftp.ruby-lang.org/pub/ruby/1.9" "ruby-1.9.3-p194.tar.bz2"
 download "http://rubygems.org/downloads" "bundler-1.2.5.gem"
-download "http://rubygems.org/downloads" "json-1.5.2.gem"
+download "http://rubygems.org/downloads" "json-1.7.7.gem"
 download "http://rubygems.org/downloads" "msgpack-0.4.7.gem"
 download "http://rubygems.org/downloads" "iobuffer-1.1.2.gem"
 download "http://rubygems.org/downloads" "cool.io-1.1.0.gem"
 download "http://rubygems.org/downloads" "http_parser.rb-0.5.1.gem"
-download "http://rubygems.org/downloads" "yajl-ruby-1.0.0.gem"
+download "http://rubygems.org/downloads" "yajl-ruby-1.1.0.gem"
 download "http://rubygems.org/downloads" "jeweler-1.6.2.gem"
 cd ..
 
