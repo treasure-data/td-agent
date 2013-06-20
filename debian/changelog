@@ -1,3 +1,19 @@
+td-agent (1.1.14-1) precise; urgency=low
+
+  * fluentd v0.10.35
+  * td-client v0.8.51
+  * td v0.10.81
+  * fluent-plugin-s3 v0.3.3
+  * fluent-plugin-webhdfs v0.2.0
+  * webhdfs v0.5.3
+  * bson_ext v1.8.6
+  * bson v1.8.6
+  * mongo v1.8.6
+  * yajl-ruby v1.1.0
+  * json v1.7.7
+
+ -- Masahiro Nakagawa <masa@treasure-data.com>  Thu, 20 Jun 2013 17:00:00 +0000
+
 td-agent (1.1.13-1) precise; urgency=low
 
   * fluent-plugin-td v0.10.14
