@@ -2,9 +2,9 @@ deps/ruby-1.9.3-p194.tar.bz2
 deps/jemalloc-2.2.5.tar.bz2
 deps/bundler-1.2.5.gem
 deps/cool.io-1.1.0.gem
-deps/json-1.5.2.gem
+deps/json-1.7.7.gem
 deps/http_parser.rb-0.5.1.gem
 deps/msgpack-0.4.7.gem
 deps/iobuffer-1.1.2.gem
-deps/yajl-ruby-1.0.0.gem
+deps/yajl-ruby-1.1.0.gem
 deps/jeweler-1.6.2.gem
