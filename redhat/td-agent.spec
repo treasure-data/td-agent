@@ -129,8 +129,8 @@ fi
 * Thu Jun 20 2013 Masahiro Nakagawa <masa@treasure-data.com>
 - v.1.1.14
 - fluentd v0.10.35
-- td-client v0.8.51
-- td v0.10.81
+- td-client v0.8.52
+- td v0.10.82
 - fluent-plugin-s3 v0.3.3
 - fluent-plugin-webhdfs v0.2.0
 - webhdfs v0.5.3
