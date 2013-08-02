@@ -12,12 +12,12 @@ DEST_GEM = $(DEST_RUBY) -rrubygems -rrubygems/gem_runner -rrubygems/exceptions -
 DEST_FLUENTD_GEM = $(DEST_RUBY) $(DESTDIR)$(RUBY_BINDIR)/gem build fluentd.gemspec
 DEST_RUBY_LIBDIR = $(DESTDIR)$(RUBY_LIBDIR)/ruby
 PLUGINS = \
-  td-client-0.8.52.gem td-0.10.82.gem fluent-plugin-td-0.10.14.gem \
+  td-client-0.8.53.gem td-0.10.84.gem fluent-plugin-td-0.10.15.gem \
   thrift-0.8.0.gem fluent-plugin-scribe-0.10.10.gem \
   fluent-plugin-flume-0.1.1.gem \
-  bson-1.8.6.gem bson_ext-1.8.6.gem mongo-1.8.6.gem fluent-plugin-mongo-0.7.0.gem \
-  nokogiri-1.5.10.gem aws-sdk-1.8.3.1.gem fluent-plugin-s3-0.3.3.gem \
-  webhdfs-0.5.3.gem fluent-plugin-webhdfs-0.2.0.gem
+  bson-1.8.6.gem bson_ext-1.8.6.gem mongo-1.8.6.gem fluent-plugin-mongo-0.7.1.gem \
+  nokogiri-1.5.10.gem aws-sdk-1.8.3.1.gem fluent-plugin-s3-0.3.4.gem \
+  webhdfs-0.5.3.gem fluent-plugin-webhdfs-0.2.1.gem
 
 td: plugins
 	echo '#!/bin/sh' > $@
