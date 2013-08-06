@@ -4,7 +4,7 @@ class TdAgent < Formula
   url 'https://github.com/treasure-data/td-agent.git', :revision => '97884bfc2241eea0d6a9baff3052d95af1eab686'
   head 'https://github.com/treasure-data/td-agent.git'
   homepage 'https://github.com/treasure-data/td-agent'
-  version '1.1.14'
+  version '1.1.15'
 
   option 'fluentd-rev=<revision>', 'Using specify Fluentd revision'
   option 'ruby-ver=<version>', 'Using specify Ruby version listed by ruby-build'
@@ -18,17 +18,17 @@ class TdAgent < Formula
     install_ruby
 
     %W(bundler 1.3.5 msgpack 0.4.7 iobuffer 1.1.2
-       cool.io 1.1.0 http_parser.rb 0.5.1 yajl-ruby 1.1.0).each_slice(2) { |gem, version|
+       cool.io 1.1.1 http_parser.rb 0.5.1 yajl-ruby 1.1.0).each_slice(2) { |gem, version|
       install_gem(gem, version)
     }
 
     install_fluentd
 
-    %W(td-client 0.8.52 td 0.10.82 fluent-plugin-td 0.10.14
+    %W(td-client 0.8.53 td 0.10.84 fluent-plugin-td 0.10.15
        thrift 0.8.0 fluent-plugin-scribe 0.10.10
        fluent-plugin-flume 0.1.1 bson 1.8.6 bson_ext 1.8.6 mongo 1.8.6
-       fluent-plugin-mongo 0.7.0 nokogiri 1.5.10 aws-sdk 1.8.3.1 fluent-plugin-s3 0.3.3
-       webhdfs 0.5.3 fluent-plugin-webhdfs 0.2.0).each_slice(2) { |gem, version|
+       fluent-plugin-mongo 0.7.1 nokogiri 1.5.10 aws-sdk 1.8.3.1 fluent-plugin-s3 0.3.4
+       webhdfs 0.5.3 fluent-plugin-webhdfs 0.2.1).each_slice(2) { |gem, version|
       install_gem(gem, version)
     }
 
@@ -143,7 +143,7 @@ EOS
   end
 
   def fluentd_rev
-    rev = parse_option_value("fluentd-rev", '37a1dabceafa2ed7a2ce533f233ad0c1248a3394')
+    rev = parse_option_value("fluentd-rev", '67d409b0f94f255f6b0901dc9046d0b004d892b4')
     ohai "Fluentd revision: #{rev}"
     rev
   end
