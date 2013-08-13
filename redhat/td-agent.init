@@ -73,8 +73,21 @@ stop() {
 }
 
 restart() {
+	configtest || return $?
 	stop
 	start
+}
+
+reload() {
+	configtest || return $?
+	echo -n "Reloading $name: "
+	killproc $td_agent -HUP
+	RETVAL=$?
+	echo
+}
+
+configtest() {
+	/usr/sbin/td-agent --dry-run -q
 }
 
 case "$1" in
@@ -85,20 +98,22 @@ case "$1" in
 	stop
 	;;
     restart)
-    	restart
+	restart
 	;;
     reload)
-	killproc $td_agent -HUP
+	reload
 	;;
     condrestart)
 	[ -f /var/lock/subsys/$prog ] && restart || :
 	;;
-
+    configtest)
+        configtest
+        ;;
     status)
 	status -p $PIDFILE 'td-agent'
 	;;
     *)
-	echo "Usage: $prog {start|stop|reload|restart|condrestart|status}"
+	echo "Usage: $prog {start|stop|reload|restart|condrestart|status|configtest}"
 	exit 1
 	;;
 esac
