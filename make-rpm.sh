@@ -31,7 +31,9 @@ tar czf $dst.tar.gz $dst
 rm -fR $dst
 
 # setup rpmbuild env
-echo "%_topdir $cur/rpmbuild/" > ~/.rpmmacros
+my_rpmbuild() {
+  rpmbuild --define "_topdir $cur/rpmbuild/" "$@"
+}
 rm -fR rpmbuild
 mkdir rpmbuild
 pushd rpmbuild
@@ -44,8 +46,8 @@ mv ../$dst.tar.gz SOURCES
 cp ../redhat/td-agent.init SOURCES
 # build
 if [ -z "$rpm_dist" ]; then
-  rpmbuild -v -ba --clean SPECS/td-agent.spec
+  my_rpmbuild -v -ba --clean SPECS/td-agent.spec
 else
-  rpmbuild -v -ba --define "dist .${rpm_dist}" --clean SPECS/td-agent.spec
+  my_rpmbuild -v -ba --define "dist .${rpm_dist}" --clean SPECS/td-agent.spec
 fi
 popd
