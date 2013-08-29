@@ -129,6 +129,10 @@ do_reload() {
 	return 0
 }
 
+do_configtest() {
+  /usr/sbin/td-agent --dry-run -q
+}
+
 case "$1" in
   start)
     [ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC " "$NAME"
@@ -163,6 +167,7 @@ case "$1" in
 	# If the "reload" option is implemented then remove the
 	# 'force-reload' alias
 	#
+	do_configtest || return $?
 	log_daemon_msg "Restarting $DESC" "$NAME"
 	do_stop
 	case "$?" in
@@ -180,9 +185,12 @@ case "$1" in
 		;;
 	esac
 	;;
+  configtest)
+	do_configtest
+	;;
   *)
 	#echo "Usage: $SCRIPTNAME {start|stop|restart|reload|force-reload}" >&2
-	echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload}" >&2
+	echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload|configtest}" >&2
 	exit 3
 	;;
 esac
