@@ -1,3 +1,12 @@
+td-agent (1.1.16-1) precise; urgency=low
+
+  * fluentd v0.10.38
+  * td-client v0.8.54
+  * td v0.10.86
+  * Add configtest and use configtest at restart
+
+ -- Masahiro Nakagawa <masa@treasure-data.com>  Fri, 30 Aug 2013 18:00:00 +0000
+
 td-agent (1.1.15-1) precise; urgency=low
 
   * fluentd v0.10.36
