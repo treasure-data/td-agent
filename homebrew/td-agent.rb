@@ -1,7 +1,7 @@
 require 'formula'
 
 class TdAgent < Formula
-  url 'https://github.com/treasure-data/td-agent.git', :revision => '53dbd8e5fd1ce05b1516a3379c2d820a1abfaaa4'
+  url 'https://github.com/treasure-data/td-agent.git', :revision => '485aca031ccb6eec526caf9b596021e73f42b786'
   head 'https://github.com/treasure-data/td-agent.git'
   homepage 'https://github.com/treasure-data/td-agent'
   version '1.1.16'
