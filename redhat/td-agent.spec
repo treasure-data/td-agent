@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.15
+Version: 1.1.16
 License: APL2
 Release: 0%{?dist}
 
@@ -126,6 +126,13 @@ fi
 /var/log/td-agent
 
 %changelog
+* Fri Aug 30 2013 Masahiro Nakagawa <masa@treasure-data.com>
+- v.1.1.16
+- fluentd v0.10.38
+- td-client v0.8.54
+- td v0.10.86
+- Add configtest and use configtest at restart
+
 * Thu Aug 2 2013 Masahiro Nakagawa <masa@treasure-data.com>
 - v.1.1.15
 - fluentd v0.10.36
