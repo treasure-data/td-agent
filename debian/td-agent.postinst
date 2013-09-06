@@ -77,4 +77,13 @@ case "$1" in
         ;;
 esac
 
+if [ ! -e "/etc/default/td-agent" ]; then
+  cat > /etc/default/td-agent <<EOF
+# This file is sourced by /bin/sh from /etc/init.d/td-agent
+# Options to pass to td-agent
+DAEMON_ARGS=""
+
+EOF
+fi
+
 #DEBHELPER#
