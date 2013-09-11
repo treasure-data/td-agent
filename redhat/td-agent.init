@@ -1,4 +1,4 @@
-#!/bin/bash
+B1;2c#!/bin/bash
 #
 # /etc/rc.d/init.d/td-agent
 #
@@ -87,7 +87,7 @@ reload() {
 }
 
 configtest() {
-	/usr/sbin/td-agent --dry-run -q
+	/usr/sbin/td-agent --user td-agent --group td-agent --dry-run -q
 }
 
 case "$1" in
