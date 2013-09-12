@@ -1,4 +1,4 @@
-B1;2c#!/bin/bash
+#!/bin/bash
 #
 # /etc/rc.d/init.d/td-agent
 #
