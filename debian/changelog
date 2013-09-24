@@ -1,3 +1,14 @@
+td-agent (1.1.17-1) precise; urgency=low
+
+  * fluentd v0.10.39
+  * td-client v0.8.55
+  * td v0.10.89
+  * fluent-plugin-td v0.10.16
+  * Fix configtest permission issue at restart
+  * Create /etc/default/td-agent to set daemon options
+
+ -- Masahiro Nakagawa <masa@treasure-data.com>  Wed, 25 Sep 2013 12:00:00 +0000
+
 td-agent (1.1.16-1) precise; urgency=low
 
   * fluentd v0.10.38
