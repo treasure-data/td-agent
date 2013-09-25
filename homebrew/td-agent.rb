@@ -4,7 +4,7 @@ class TdAgent < Formula
   url 'https://github.com/treasure-data/td-agent.git', :revision => '485aca031ccb6eec526caf9b596021e73f42b786'
   head 'https://github.com/treasure-data/td-agent.git'
   homepage 'https://github.com/treasure-data/td-agent'
-  version '1.1.16'
+  version '1.1.17'
 
   option 'fluentd-rev=<revision>', 'Using specify Fluentd revision'
   option 'ruby-ver=<version>', 'Using specify Ruby version listed by ruby-build'
@@ -24,7 +24,7 @@ class TdAgent < Formula
 
     install_fluentd
 
-    %W(td-client 0.8.54 td 0.10.86 fluent-plugin-td 0.10.15
+    %W(td-client 0.8.55 td 0.10.89 fluent-plugin-td 0.10.16
        thrift 0.8.0 fluent-plugin-scribe 0.10.10
        fluent-plugin-flume 0.1.1 bson 1.8.6 bson_ext 1.8.6 mongo 1.8.6
        fluent-plugin-mongo 0.7.1 nokogiri 1.5.10 aws-sdk 1.8.3.1 fluent-plugin-s3 0.3.4
@@ -143,7 +143,7 @@ EOS
   end
 
   def fluentd_rev
-    rev = parse_option_value("fluentd-rev", '106fe457d3b65c8ad8891b9153f49acd5a445b02')
+    rev = parse_option_value("fluentd-rev", 'f7105bc435abd5f4e74f13c5e05c625808ba1912')
     ohai "Fluentd revision: #{rev}"
     rev
   end
