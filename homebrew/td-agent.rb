@@ -121,7 +121,9 @@ EOS
   end
 
   def install_gem(gem, version)
-    system "#{dest_gem} install #{gem} -v #{version} --no-ri --no-rdoc"
+    opts = ''
+    opts << " --with-cppflags='-D_FORTIFY_SOURCE=0'" if gem == 'thrift'
+    system "#{dest_gem} install #{gem} -v #{version} --no-ri --no-rdoc -- #{opts}"
   end
 
   def dest_ruby
