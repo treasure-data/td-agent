@@ -17,8 +17,8 @@ PLUGINS = \
   fluent-plugin-flume-0.1.1.gem \
   bson-1.8.6.gem bson_ext-1.8.6.gem mongo-1.8.6.gem fluent-plugin-mongo-0.7.1.gem \
   nokogiri-1.5.10.gem aws-sdk-1.8.3.1.gem fluent-plugin-s3-0.3.5.gem \
-  webhdfs-0.5.3.gem fluent-plugin-webhdfs-0.2.1.gem
-  fluent-plugin-rewrite-tag-filter-1.3.1.gem
+  webhdfs-0.5.3.gem fluent-plugin-webhdfs-0.2.1.gem \
+  fluent-plugin-rewrite-tag-filter-1.3.1.gem \
   fluent-plugin-td-monitoring-0.1.0.gem
 
 td: plugins
