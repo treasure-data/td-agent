@@ -126,7 +126,7 @@ fi
 /var/log/td-agent
 
 %changelog
-* Thus Dec 5 2013 Masahiro Nakagawa <masa@treasure-data.com>
+* Thu Dec 5 2013 Masahiro Nakagawa <masa@treasure-data.com>
 - v1.1.18
 - ruby v1.9.3-p484 (security fix)
 - fluentd v0.10.41
