@@ -23,15 +23,15 @@ PLUGINS = \
 
 td: plugins
 	echo '#!/bin/sh' > $@
-	echo 'export GEM_HOME="$(RUBY_LIBDIR)/ruby/gems/1.9.1/"' >> $@
-	echo 'export GEM_PATH="$(RUBY_LIBDIR)/ruby/gems/1.9.1/"' >> $@
+	echo 'export GEM_HOME="$(RUBY_LIBDIR)/ruby/gems/2.0.0/"' >> $@
+	echo 'export GEM_PATH="$(RUBY_LIBDIR)/ruby/gems/2.0.0/"' >> $@
 	echo '$(RUBY_BINDIR)/td "$$@"' >> $@
 	chmod 755 $@
 
 td-agent: plugins
 	echo '#!$(RUBY_BINDIR)/ruby' > $@
-	echo 'ENV["GEM_HOME"]="$(RUBY_LIBDIR)/ruby/gems/1.9.1/"' >> $@
-	echo 'ENV["GEM_PATH"]="$(RUBY_LIBDIR)/ruby/gems/1.9.1/"' >> $@
+	echo 'ENV["GEM_HOME"]="$(RUBY_LIBDIR)/ruby/gems/2.0.0/"' >> $@
+	echo 'ENV["GEM_PATH"]="$(RUBY_LIBDIR)/ruby/gems/2.0.0/"' >> $@
 	echo 'ENV["FLUENT_CONF"]="$(sysconfdir)/td-agent/td-agent.conf"' >> $@
 	echo 'ENV["FLUENT_PLUGIN"]="$(sysconfdir)/td-agent/plugin"' >> $@
 	echo 'ENV["FLUENT_SOCKET"]="$(localstatedir)/run/td-agent/td-agent.sock"' >> $@
@@ -48,25 +48,25 @@ plugins:
 
 install: install-recursive
 	for gem in $(srcdir)/deps/*.gem; do \
-		RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
+		RUBYLIB="$(DEST_RUBY_LIBDIR)/2.0.0:$(DEST_RUBY_LIBDIR)/2.0.0/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
 			$(DEST_GEM) install --no-rdoc --no-ri "$$gem"; \
 	done
 	cd "$(srcdir)" && \
-		RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
+		RUBYLIB="$(DEST_RUBY_LIBDIR)/2.0.0:$(DEST_RUBY_LIBDIR)/2.0.0/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
 		$(DEST_FLUENTD_GEM); \
 		mkdir -p $(srcdir)/pkg; \
 		cp -f fluentd-*.gem $(srcdir)/pkg
 	for gem in $(srcdir)/pkg/*.gem; do \
-		RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
+		RUBYLIB="$(DEST_RUBY_LIBDIR)/2.0.0:$(DEST_RUBY_LIBDIR)/2.0.0/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
 			$(DEST_GEM) install --no-rdoc --no-ri "$$gem"; \
 	done
 	for gem in $(PLUGINS); do \
-		RUBYLIB="$(DEST_RUBY_LIBDIR)/1.9.1:$(DEST_RUBY_LIBDIR)/1.9.1/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
+		RUBYLIB="$(DEST_RUBY_LIBDIR)/2.0.0:$(DEST_RUBY_LIBDIR)/2.0.0/$(shell $(DEST_RUBY) --version | sed 's/.*\[\(.*\)\]/\1/')" \
 			$(DEST_GEM) install --no-rdoc --no-ri "$(srcdir)/plugins/$$gem"; \
 	done
-	rm -fR $(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/bson-*/bin/b2json
-	rm -fR $(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/bson-*/bin/j2bson
-	rm -fR $(DEST_RUBY_LIBDIR)/gems/1.9.1/gems/td-*/dist/resources/pkg/td
+	rm -fR $(DEST_RUBY_LIBDIR)/gems/2.0.0/gems/bson-*/bin/b2json
+	rm -fR $(DEST_RUBY_LIBDIR)/gems/2.0.0/gems/bson-*/bin/j2bson
+	rm -fR $(DEST_RUBY_LIBDIR)/gems/2.0.0/gems/td-*/dist/resources/pkg/td
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent
 	cp -f $(srcdir)/td-agent.conf $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf.tmpl
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d
