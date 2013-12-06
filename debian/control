@@ -1,4 +1,4 @@
-Source: td-agent
+Source: td-agent-experimental
 Section: Network
 Priority: optional
 Maintainer: Kazuki Ohta <k@treasure-data.com>
@@ -25,7 +25,7 @@ Homepage: http://treasure-data.com/
 #Vcs-Git: git://git.debian.org/collab-maint/td-agent.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/td-agent.git;a=summary
 
-Package: td-agent
+Package: td-agent-experimental
 Architecture: any
 Depends:
   ${shlibs:Depends},
@@ -36,3 +36,6 @@ Depends:
   libxml2
 Recommends: ntp
 Description: A data collector agent for Treasure Data
+Conflicts: td-agent
+Replaces: td-agent (<= 1.1.18)
+Provides: td-agent (<= 1.1.18)
