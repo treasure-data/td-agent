@@ -20,7 +20,7 @@ Requires(post): /sbin/chkconfig
 Requires(post): /sbin/service
 Requires(preun): /sbin/chkconfig
 Requires(preun): /sbin/service
-BuildRequires: gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel libxslt-devel libxml2-devel libyaml-devel
+BuildRequires: gcc gcc-c++ pkgconfig libtool openssl-devel readline-devel libxslt-devel libxml2-devel td-libyaml
 
 # 2011/08/01 Kazuki Ohta <kazuki.ohta@gmail.com>
 # prevent stripping the debug info.
