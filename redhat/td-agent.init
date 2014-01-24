@@ -31,7 +31,8 @@ if [ -f /etc/sysconfig/$prog ]; then
 fi
 PIDFILE=${PIDFILE-/var/run/td-agent/$prog.pid}
 DAEMON_ARGS=${DAEMON_ARGS---user td-agent}
-TD_AGENT_ARGS="${TD_AGENT_ARGS-/usr/sbin/td-agent --group td-agent --log /var/log/td-agent/td-agent.log}"
+TD_AGENT_CONFIG_FILE="/etc/td-agent/td-agent.conf"
+TD_AGENT_ARGS="${TD_AGENT_ARGS-/usr/sbin/td-agent -c ${TD_AGENT_CONFIG_FILE} --group td-agent --log /var/log/td-agent/td-agent.log}"
 
 if [ -n "${PIDFILE}" ]; then
 	mkdir -p $(dirname ${PIDFILE})
@@ -87,7 +88,7 @@ reload() {
 }
 
 configtest() {
-	/usr/sbin/td-agent --user td-agent --group td-agent --dry-run -q
+	/usr/sbin/td-agent -c ${TD_AGENT_CONFIG_FILE} --user td-agent --group td-agent --dry-run -q
 }
 
 case "$1" in
