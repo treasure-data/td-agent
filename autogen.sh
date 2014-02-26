@@ -9,7 +9,7 @@ test -f COPYING   || touch COPYING
 test -f ChangeLog || touch ChangeLog
 test -f NEWS      || touch NEWS
 test -f NOTICE    || touch NOTICE
-test -f README    || cp -f README.rdoc README
+test -f README    || cp -f README.md README
 
 function download() {
     if [ ! -f "$2" ];then
@@ -55,11 +55,11 @@ mkdir -p \$dst/deps || exit 1
 mkdir -p \$dst/pkg || exit 1
 cp pkg/fluentd-\$version.gem \$dst/pkg/
 cp deps/*.gem deps/ruby-*.tar.bz2 deps/jemalloc-*.tar.bz2 \$dst/deps/
-cp README.rdoc README COPYING NEWS ChangeLog AUTHORS INSTALL NOTICE \\
+cp README.md README COPYING NEWS ChangeLog AUTHORS INSTALL NOTICE \\
     configure.in Makefile.in Makefile.am configure aclocal.m4 \\
     Rakefile VERSION fluent.conf make_dist.sh \\
     \$dst/ || exit 1
-cp -f README.rdoc \$dst/README || exit 1
+cp -f README.md \$dst/README || exit 1
 mkdir -p \$dst/ac || exit 1
 cp ac/* \$dst/ac/ || exit 1
 tar czvf \$dst.tar.gz \$dst || exit 1
