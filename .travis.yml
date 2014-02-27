@@ -1,0 +1,2 @@
+script: ./make-deb.sh
+before_script: ./make-deb-init.sh
