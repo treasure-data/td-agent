@@ -17,7 +17,7 @@ yum install -y wget make rpmbuild gcc gcc-c++ readline-devel openssl-devel libxm
 rm -fR fluentd
 git clone git://github.com/fluent/fluentd.git
 cd fluentd
-git checkout -b $rev # -b: don't show message to suggest 'you are not anywhere' of git
+git checkout $rev
 cd ..
 rm -fR $dst
 mv fluentd $dst
