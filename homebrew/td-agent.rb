@@ -73,7 +73,7 @@ class TdAgent < Formula
 
     You can invoke td-agent manually via td-agent command without launchctl:
 
-        td-agent --pid #{var}/run/td-agent/td-agent.pid
+        td-agent --daemon #{var}/run/td-agent/td-agent.pid
 
     If you want to know the details of Fluentd, see Fluentd documents at:
 
