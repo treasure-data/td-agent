@@ -80,7 +80,7 @@ install: install-recursive
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent
 	cp -f $(srcdir)/td-agent.conf $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf.tmpl
 	if [ -f "$(srcdir)/td-agent.conf.custom" ]; then \
-	    cp -f $(srcdir)/td-agent.conf.custom $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf; \
+	    cp -f $(srcdir)/td-agent.conf.custom $(DESTDIR)$(sysconfdir)/td-agent/td-agent.conf.tmpl; \
 	fi
 	mkdir -p $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d
 	cp -f $(srcdir)/td-agent.prelink.conf $(DESTDIR)$(sysconfdir)/td-agent/prelink.conf.d/td-agent.conf
