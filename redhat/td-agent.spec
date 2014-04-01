@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.18
+Version: 1.1.19
 License: APL2
 Release: 0%{?dist}
 
@@ -133,6 +133,18 @@ fi
 /var/log/td-agent
 
 %changelog
+* Tue Apr 1 2014 Masahiro Nakagawa <masa@treasure-data.com>
+- v1.1.19
+- fluentd v0.10.45
+- td-client v0.8.58
+- td v0.10.99
+- fluent-plugin-s3 v0.3.7
+- fluent-plugin-td v0.10.18
+- fluent-plugin-mongo v0.7.3
+- fluent-plugin-webhdfs v0.2.2
+- fluent-plugin-rewrite-tag-filter v1.4.1
+- fluent-plugin-td-monitoring v0.1.1
+
 * Thu Dec 5 2013 Masahiro Nakagawa <masa@treasure-data.com>
 - v1.1.18
 - ruby v1.9.3-p484 (security fix)
