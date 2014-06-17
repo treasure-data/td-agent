@@ -71,9 +71,9 @@ fi
 #
 do_start()
 {
-	# 2012/07/23 Kazuki Ohta <k@treasure-data.com>
 	# Set Max number of file descriptors for the safety sake
-	ulimit -n 8192
+	# see http://docs.fluentd.org/en/articles/before-install
+	ulimit -n 65536
 
 	# Return
 	#   0 if daemon has been started
