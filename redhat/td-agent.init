@@ -26,6 +26,9 @@ if [ -f "/usr/lib64/fluent/ruby/bin/ruby" ]; then
 	td_agent=/usr/lib64/fluent/ruby/bin/ruby
 fi
 
+# timeout can be overridden from /etc/sysconfig/td-agent
+STOPTIMEOUT=60
+
 if [ -f /etc/sysconfig/$prog ]; then
 	. /etc/sysconfig/$prog
 fi
@@ -62,11 +65,42 @@ start() {
 stop() {
 	echo -n "Shutting down $name: "
 	if [ -e "${PIDFILE}" ]; then
-		killproc -p ${PIDFILE} || killproc $prog
+	    # Use own process termination instead of killproc because killproc can't wait SIGTERM singal
+	    TD_AGENT_PID=`cat "$PIDFILE" 2>/dev/null`
+	    if [ -n "$TD_AGENT_PID" ]; then
+		/bin/kill "$TD_AGENT_PID" >/dev/null 2>&1
+		RETVAL=$?
+		if [ $RETVAL -eq 0 ]; then
+		    TIMEOUT="$STOPTIMEOUT"
+		    while [ $TIMEOUT -gt 0 ]; do
+			/bin/kill -0 "$TD_AGENT_PID" >/dev/null 2>&1 || break
+			sleep 1
+			let TIMEOUT=${TIMEOUT}-1
+		    done
+		    if [ $TIMEOUT -eq 0 ]; then
+			echo -n "Timeout error occurred trying to stop td-agent..."
+			RETVAL=1
+			failure
+		    else
+			RETVAL=0
+			success
+		    fi
+		else
+		    failure
+		fi
+	    else
+		failure
+		RETVAL=4
+	    fi
 	else
-		killproc $prog
+	    killproc $prog
+	    RETVAL=$?
+	    if [ $RETVAL -eq 0 ]; then
+		success
+	    else
+		failure
+	    fi
 	fi
-	RETVAL=$?
 	echo
 	[ $RETVAL -eq 0 ] && rm -f $PIDFILE && rm -f /var/lock/subsys/$prog
 	return $RETVAL
