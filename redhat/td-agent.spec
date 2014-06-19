@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.19
+Version: 1.1.20
 License: APL2
 Release: 0%{?dist}
 
@@ -133,6 +133,18 @@ fi
 /var/log/td-agent
 
 %changelog
+* Thu Jun 19 2014 Masahiro Nakagawa <masa@treasure-data.com>
+- v1.1.20
+- fluentd v0.10.50
+- td-client v0.8.61
+- td v0.10.99
+- fluent-plugin-s3 v0.4.0
+- fluent-plugin-td v0.10.20
+- fluent-plugin-td-monitoring v0.1.2
+- Add rspec 3.0.0
+- Set 'ulimit -n 65536' at start
+- Fix fluentd shutdown without killproc
+
 * Tue Apr 1 2014 Masahiro Nakagawa <masa@treasure-data.com>
 - v1.1.19
 - fluentd v0.10.45
