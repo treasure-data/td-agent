@@ -7,4 +7,5 @@ deps/http_parser.rb-0.5.1.gem
 deps/msgpack-0.4.7.gem
 deps/iobuffer-1.1.2.gem
 deps/yajl-ruby-1.1.0.gem
+deps/rspec-3.0.0.gem
 deps/jeweler-1.6.2.gem

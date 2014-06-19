@@ -37,6 +37,7 @@ download "http://rubygems.org/downloads" "iobuffer-1.1.2.gem"
 download "http://rubygems.org/downloads" "cool.io-1.1.1.gem"
 download "http://rubygems.org/downloads" "http_parser.rb-0.5.1.gem"
 download "http://rubygems.org/downloads" "yajl-ruby-1.1.0.gem"
+download "http://rubygems.org/downloads" "rspec-3.0.0.gem"
 download "http://rubygems.org/downloads" "jeweler-1.6.2.gem"
 cd ..
 
