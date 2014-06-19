@@ -54,6 +54,9 @@ fi
 RETVAL=0
 
 start() {
+	# Set Max number of file descriptors for the safety sake
+	# see http://docs.fluentd.org/en/articles/before-install
+	ulimit -n 65536
 	echo -n "Starting $name: "
 	daemon --pidfile=$PIDFILE $DAEMON_ARGS $td_agent "$TD_AGENT_ARGS"
 	RETVAL=$?
