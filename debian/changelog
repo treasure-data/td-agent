@@ -1,3 +1,16 @@
+td-agent (1.1.20-1) precise; urgency=low
+
+  * fluentd v0.10.50
+  * td-client v0.8.61
+  * td v0.10.99
+  * fluent-plugin-s3 v0.4.0
+  * fluent-plugin-td v0.10.20
+  * fluent-plugin-td-monitoring v0.1.2
+  * Add rspec 3.0.0
+  * Set ulimit -n 65536 at start
+
+ -- Masahiro Nakagawa <masa@treasure-data.com>  Thu, 19 Jun 2014 00:00:00 +0000
+
 td-agent (1.1.19-1) precise; urgency=low
 
   * fluentd v0.10.45
