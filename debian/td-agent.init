@@ -131,11 +131,8 @@ do_reload() {
 
 do_configtest() {
   cmd="$DAEMON_ARGS"
-  cmd=$(echo $cmd | sed -e "s/--log[ ]*[^ ]*//")
-  cmd=$(echo $cmd | sed -e "s/--user[ ]*[^ ]*//")
-  cmd=$(echo $cmd | sed -e "s/--group[ ]*[^ ]*//")
   cmd=$(echo $cmd | sed -e "s/--daemon[ ]*[^ ]*//")
-  cmd="$cmd --user $USER --group $GROUP --dry-run -q"
+  cmd="$cmd --dry-run -q"
   eval "$cmd"
 }
 
