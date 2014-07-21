@@ -124,7 +124,12 @@ reload() {
 }
 
 configtest() {
-	/usr/sbin/td-agent --user td-agent --group td-agent --dry-run -q
+	cmd="$TD_AGENT_ARGS"
+	cmd=$(echo $cmd | sed -e "s/--log[ ]*[^ ]*//")
+	cmd=$(echo $cmd | sed -e "s/--user[ ]*[^ ]*//")
+	cmd=$(echo $cmd | sed -e "s/--group[ ]*[^ ]*//")
+	cmd="$cmd --user td-agent --group td-agent --dry-run -q"
+	eval "$cmd"
 }
 
 case "$1" in
