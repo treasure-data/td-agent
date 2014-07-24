@@ -124,10 +124,7 @@ reload() {
 }
 
 configtest() {
-	cmd="$TD_AGENT_ARGS"
-	cmd=$(echo $cmd | sed -e "s/--daemon[ ]*[^ ]*//")
-	cmd="$cmd $DAEMON_ARGS --dry-run -q"
-	eval "$cmd"
+	eval "$TD_AGENT_ARGS $DAEMON_ARGS --dry-run -q"
 }
 
 case "$1" in
