@@ -124,7 +124,7 @@ reload() {
 }
 
 configtest() {
-	/usr/sbin/td-agent --user td-agent --group td-agent --dry-run -q
+	eval "$TD_AGENT_ARGS $DAEMON_ARGS --dry-run -q"
 }
 
 case "$1" in
