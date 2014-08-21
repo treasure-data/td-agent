@@ -31,8 +31,6 @@ Depends:
   ${shlibs:Depends},
   ${misc:Depends},
   ${dist:Depends},
-  libssl0.9.8,
-  libxslt1.1,
-  libxml2
+  adduser
 Recommends: ntp
 Description: A data collector agent for Treasure Data

@@ -6,8 +6,6 @@
 # dh-make output file, you may use that output file without restriction.
 # This special exception was added by Craig Small in version 0.37 of dh-make.
 
-SUBSTVARS = -Vdist:Depends="$(shell (lsb_release -a 2>/dev/null | grep -q 'Ubuntu\|squeeze') && echo libyaml-0-2 || echo libyaml-0-1)"
-
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
@@ -25,5 +23,5 @@ override_dh_auto_build:
 
 override_dh_auto_test:
 
-override_dh_gencontrol:
-	dh_gencontrol -- $(SUBSTVARS)
+override_dh_shlibdeps:
+		dh_shlibdeps -l'/usr/lib*/fluent/ruby/bin:/usr/lib*/fluent/ruby/lib/ruby/1.9.1/*-linux:/usr/lib*/fluent/ruby/lib/ruby/gems/1.9.1/gems/*/ext'
