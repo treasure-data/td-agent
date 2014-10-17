@@ -27,7 +27,7 @@ if [ -f "/usr/lib64/fluent/ruby/bin/ruby" ]; then
 fi
 
 # timeout can be overridden from /etc/sysconfig/td-agent
-STOPTIMEOUT=60
+STOPTIMEOUT=120
 
 if [ -f /etc/sysconfig/$prog ]; then
 	. /etc/sysconfig/$prog
