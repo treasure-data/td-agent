@@ -1,6 +1,6 @@
 Summary: td-agent
 Name: td-agent
-Version: 1.1.20
+Version: 1.1.21
 License: APL2
 Release: 0%{?dist}
 
@@ -133,6 +133,19 @@ fi
 /var/log/td-agent
 
 %changelog
+* Mon Oct 20 2014 Masahiro Nakagawa <masa@treasure-data.com>
+- v1.1.21
+- fluentd v0.10.55
+- td-client v0.8.66
+- td v0.11.5
+- fluent-plugin-s3 v0.4.1
+- fluent-plugin-webhdfs v0.3.1
+- fluent-plugin-scribe v0.1.2
+- fluent-plugin-td v0.10.22
+- fluent-plugin-td-monitoring v0.1.3
+- Fix option handling in configtest
+- Default timeout to 120 seconds
+
 * Thu Jun 19 2014 Masahiro Nakagawa <masa@treasure-data.com>
 - v1.1.20
 - fluentd v0.10.50
