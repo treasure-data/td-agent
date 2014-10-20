@@ -1,3 +1,18 @@
+td-agent (1.1.21-1) precise; urgency=low
+
+  * fluentd v0.10.55
+  * td-client v0.8.66
+  * td v0.11.5
+  * fluent-plugin-s3 v0.4.1
+  * fluent-plugin-webhdfs v0.3.1
+  * fluent-plugin-scribe v0.1.2
+  * fluent-plugin-td v0.10.22
+  * fluent-plugin-td-monitoring v0.1.3
+  * Fix option handling in configtest
+  * Fix package is un-purgeable
+
+ -- Masahiro Nakagawa <masa@treasure-data.com>  Mon, 20 Oct 2014 00:00:00 +0000
+
 td-agent (1.1.20-1) precise; urgency=low
 
   * fluentd v0.10.50
