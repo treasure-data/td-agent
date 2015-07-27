@@ -1,0 +1,16 @@
+[Unit]
+Description=td-agent
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=td-agent
+Group=td-agent
+ExecStart=/usr/sbin/td-agent -c /etc/td-agent/td-agent.conf -p /etc/td-agent/plugin/
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
