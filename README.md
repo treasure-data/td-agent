@@ -1,13 +1,14 @@
+# NOTE
+
+This repository is for td-agent 1. If you want to check td-agent 2 or later,
+please see [omnibus-td-agent](https://github.com/treasure-data/omnibus-td-agent) repository.
+Don't send a patch and open an issue on this repository.
+
 # About
 
 The event collector daemon, for Treasure Data. This daemon collects various types of logs/events via various way, and transfer them to the cloud. For more about Treasure Data, see the [homepage](http://treasure-data.com/), and the [documentation](http://docs.treasure-data.com/).
 
 td-agent is open sourced as [fluentd project](http://github.com/fluent/). In other words, td-agent is a distribution package of fluentd.
-
-## NOTE
-
-This repository is for td-agent 1. If you want to check td-agent 2 or later,
-please see [omnibus-td-agent](https://github.com/treasure-data/omnibus-td-agent) repository.
 
 # Requirement
 
