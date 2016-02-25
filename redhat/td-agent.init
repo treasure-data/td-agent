@@ -123,6 +123,13 @@ reload() {
 	echo
 }
 
+flush() {
+	echo -n "Flushing buffer $name: "
+	killproc $td_agent -USR1
+	RETVAL=$?
+	echo
+}
+
 configtest() {
 	eval "$TD_AGENT_ARGS $DAEMON_ARGS --dry-run -q"
 }
@@ -140,6 +147,9 @@ case "$1" in
     reload)
 	reload
 	;;
+    flush)
+	flush
+	;;
     condrestart)
 	[ -f /var/lock/subsys/$prog ] && restart || :
 	;;
@@ -150,7 +160,7 @@ case "$1" in
 	status -p $PIDFILE 'td-agent'
 	;;
     *)
-	echo "Usage: $prog {start|stop|reload|restart|condrestart|status|configtest}"
+	echo "Usage: $prog {start|stop|restart|reload|flush|condrestart|configtest|status}"
 	exit 1
 	;;
 esac

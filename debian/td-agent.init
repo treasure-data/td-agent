@@ -129,6 +129,14 @@ do_reload() {
 	return 0
 }
 
+#
+# Function that sends a USR1 Signal to the daemon/service
+#
+do_flush() {
+	start-stop-daemon --stop --signal USR1 --quiet --pidfile $PIDFILE --name ruby
+	return 0
+}
+
 do_configtest() {
 	eval "$DAEMON_ARGS --user ${USER} --group ${GROUP} --dry-run -q"
 }
@@ -185,12 +193,14 @@ case "$1" in
 		;;
 	esac
 	;;
+  flush)
+	do_flush
+	;;
   configtest)
 	do_configtest
 	;;
   *)
-	#echo "Usage: $SCRIPTNAME {start|stop|restart|reload|force-reload}" >&2
-	echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload|configtest}" >&2
+	echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload|flush|configtest|status}" >&2
 	exit 3
 	;;
 esac
