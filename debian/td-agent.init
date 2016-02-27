@@ -25,7 +25,8 @@ DESC=td-agent                   # Introduce a short description here
 PIDFILE=/var/run/$NAME/$NAME.pid
 DAEMON=/usr/lib/fluent/ruby/bin/ruby # Introduce the server's location here
 # Arguments to run the daemon with
-DAEMON_ARGS="/usr/sbin/td-agent $DAEMON_ARGS --daemon $PIDFILE --log /var/log/td-agent/td-agent.log"
+TD_AGENT_CMD="/usr/sbin/td-agent"
+DAEMON_ARGS="$TD_AGENT_CMD $DAEMON_ARGS --daemon $PIDFILE --log /var/log/td-agent/td-agent.log"
 SCRIPTNAME=/etc/init.d/$NAME
 START_STOP_DAEMON_ARGS=""
 
@@ -66,6 +67,33 @@ if [ -f "/usr/lib/fluent/jemalloc/lib/libjemalloc.so" ]; then
 	export LD_PRELOAD=/usr/lib/fluent/jemalloc/lib/libjemalloc.so
 fi
 
+get_pids()
+{
+	 pgrep -f "^$DAEMON $TD_AGENT_CMD"
+}
+
+# Usage: wait_pids TIMEOUT
+# Every second wait_pids checks if get_pids returns any PIDs and:
+#   - Returns 0 if no get_pids does not return any PIDs anymore
+#   - Returns 2 if TIMEOUT is reached
+wait_pids()
+{
+	 retval=0
+	 counter=0
+	 timeout=$1
+	 while get_pids > /dev/null; do
+		 if [ $counter -gt $timeout ]; then
+			 retval=2
+			 break
+		 fi
+		 echo -n "."
+		 sleep 1
+		 counter=$(($counter+1))
+	 done
+	 echo
+	 return $retval
+}
+
 #
 # Function that starts the daemon/service
 #
@@ -82,6 +110,8 @@ do_start()
 	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON \
 	${START_STOP_DAEMON_ARGS} --test > /dev/null \
 		|| return 1
+	get_pids > /dev/null \
+		&& return 2
 	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON \
 	${START_STOP_DAEMON_ARGS} -- $DAEMON_ARGS \
 		|| return 2
@@ -100,18 +130,34 @@ do_stop()
 	#   1 if daemon was already stopped
 	#   2 if daemon could not be stopped
 	#   other if a failure occurred
-	start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 --pidfile $PIDFILE --name ruby
+
+	wait_to_term=300
+	wait_to_kill=5
+
+	start-stop-daemon --stop --quiet --retry=TERM/$wait_to_term/KILL/$wait_to_kill --pidfile $PIDFILE --name ruby
 	RETVAL="$?"
 	[ "$RETVAL" = 2 ] && return 2
-	# Wait for children to finish too if this is a daemon that forks
-	# and if the daemon is only ever run from this initscript.
-	# If the above conditions are not satisfied then add some other code
-	# that waits for the process to drop all resources that could be
-	# needed by services started subsequently.  A last resort is to
-	# sleep for some time.
-	start-stop-daemon --stop --quiet --oknodo --retry=0/30/KILL/5 --exec $DAEMON
-	[ "$?" = 2 ] && return 2
-	# Many daemons don't delete their pidfiles when they exit.
+
+	# Handle the case when either pid-file is missing or parent process
+	# is dead but children are still running (with different PID)
+	PIDs=$(get_pids)
+	if [ -n "$PIDs" ]; then
+		# Try to send TERM and wait
+		echo "Send TERM"
+		kill $PIDs
+		wait_pids $wait_to_term
+		RETVAL="$?"
+
+		# Try to send KILL and wait
+		if [ "$RETVAL" = 2 ]; then
+			echo "Send KILL"
+			kill -9 $PIDs
+			wait_pids $wait_to_kill
+			RETVAL="$?"
+		fi
+	fi
+
+	[ "$RETVAL" = 2 ] && return 2
 	rm -f $PIDFILE
 	return "$RETVAL"
 }
