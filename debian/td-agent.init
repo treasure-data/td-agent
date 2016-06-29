@@ -10,6 +10,7 @@
 ### END INIT INFO
 
 # Author: Kazuki Ohta <k@treasure-data.com>
+set -e
 
 # Introduce the short server's name here
 NAME=td-agent
